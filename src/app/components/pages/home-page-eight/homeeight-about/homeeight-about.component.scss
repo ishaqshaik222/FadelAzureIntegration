@@ -1,0 +1,226 @@
+.distance-learning-area {
+    position: relative;
+    z-index: 1;
+}
+.distance-learning-image {
+    text-align: center;
+}
+.distance-learning-content {
+    padding-left: 15px;
+    margin-top: 20px;
+
+    .sub-title {
+        text-transform: uppercase;
+        color: var(--mainColor);
+        margin-bottom: 12px;
+        display: block;
+        font: {
+            weight: 500;
+        };
+    }
+    h2 {
+        margin-bottom: 20px;
+        font: {
+            size: 37px;
+            weight: 700;
+        };
+    }
+    .features-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        list-style-type: none;
+        margin: {
+            bottom: 0;
+            top: 0px;
+            left: -8px;
+            right: -8px;
+        };
+        li {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: {
+                top: 16px;
+                left: 8px;
+                right: 8px;
+            };
+            span {
+                display: block;
+                position: relative;
+                color: var(--blackColor);
+                font: {
+                    size: 16px;
+                    weight: 700;
+                };
+                padding: {
+                    top: 5px;
+                    left: 50px;
+                    bottom: 5px;
+                };
+                i {
+                    left: 0;
+                    top: -2px;
+                    width: 40px;
+                    height: 40px;
+                    font-size: 25px;
+                    overflow: hidden;
+                    font-weight: 500;
+                    line-height: 40px;
+                    text-align: center;
+                    position: absolute;
+                    color: var(--mainColor);
+                    background: {
+                        image: url(../../../../../assets/img/circle-border.png);
+                        position: center center;
+                        repeat: no-repeat;
+                        size: cover;
+                    };
+                }
+            }
+        }
+    }
+    .default-btn {
+        margin-top: 35px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .distance-learning-area {
+        .col-lg-6 {
+            &:nth-child(1) {
+                order: 2;
+            }
+            &:nth-child(2) {
+                order: 1;
+            }
+        }
+    }
+    .distance-learning-content {
+        padding-left: 0;
+        margin-top: 0;
+        text-align: center;
+
+        .sub-title {
+            font-size: 13.5px;
+        }
+        h2 {
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+        .features-list {
+            li {
+                span {
+                    font-size: 13.5px;
+                    padding: {
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                    };
+                    i {
+                        position: relative;
+                        left: 0;
+                        right: 0;
+                        display: block;
+                        margin: {
+                            left: auto;
+                            right: auto;
+                            bottom: 7px;
+                        };
+                    }
+                }
+            }
+        }
+    }
+    .distance-learning-image {
+        margin-top: 30px;
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    .distance-learning-content {
+        .features-list {
+            li {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .distance-learning-area {
+        .col-lg-6 {
+            &:nth-child(1) {
+                order: 2;
+            }
+            &:nth-child(2) {
+                order: 1;
+            }
+        }
+    }
+    .distance-learning-content {
+        padding-left: 0;
+        margin-top: 0;
+        text-align: center;
+
+        .features-list {
+            li {
+                flex: 0 0 25%;
+                max-width: 25%;
+
+                span {
+                    padding: {
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                    };
+                    i {
+                        display: block;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        margin: {
+                            left: auto;
+                            right: auto;
+                            bottom: 10px;
+                        };
+                    }
+                }
+            }
+        }
+    }
+    .distance-learning-image {
+        margin-top: 35px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .distance-learning-content {
+        padding-left: 0;
+        margin-top: 0;
+
+        h2 {
+            font-size: 34px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1275px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {
+
+    .distance-learning-content {
+        margin-top: 70px;
+    }
+
+}

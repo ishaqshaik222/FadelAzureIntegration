@@ -1,0 +1,148 @@
+.language-banner-area {
+    position: relative;
+    padding-top: 20px;
+    z-index: 1;
+    background: {
+        image: url(../../../../../assets/img/banner-bg-color.jpg);
+        position: bottom left;
+        repeat: no-repeat;
+        color: #f8e8e9;
+        size: cover;
+    };
+    .container-fluid {
+        max-width: 1275px;
+    }
+}
+.language-banner-content {
+    padding-right: 10px;
+
+    h1 {
+        margin-bottom: 15px;
+        font: {
+            size: 55px;
+            weight: 700;
+        };
+    }
+    p {
+        color: var(--blackColor);
+    }
+    .default-btn {
+        margin-top: 10px;
+    }
+}
+.language-banner-image {
+    text-align: center;
+    position: relative;
+    top: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .language-banner-area {
+        padding-top: 80px;
+        background-image: unset !important;
+
+        .container-fluid {
+            max-width: 100%;
+        }
+    }
+    .language-banner-content {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 30px;
+
+        h1 {
+            font-size: 34px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    .language-banner-area {
+        .container-fluid {
+            max-width: 540px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .language-banner-area {
+        background-image: unset !important;
+        padding-top: 100px;
+
+        .container-fluid {
+            max-width: 720px;
+        }
+    }
+    .language-banner-content {
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: 30px;
+
+        h1 {
+            font-size: 50px;
+        }
+        p {
+            max-width: 650px;
+            margin: {
+                left: auto;
+                right: auto;
+            };
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .language-banner-area {
+        .container-fluid {
+            max-width: 960px;
+        }
+    }
+    .language-banner-content {
+        padding-right: 0;
+
+        h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1275px) {
+
+    .language-banner-area {
+        .container-fluid {
+            max-width: 1140px;
+        }
+    }
+    .language-banner-content {
+        padding-right: 0;
+
+        h1 {
+            font-size: 48px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {
+
+    .language-banner-area {
+        .container-fluid {
+            max-width: 1400px;
+        }
+    }
+
+}

@@ -1,0 +1,159 @@
+.training-course-banner-area {
+    background-image: url(../../../../../assets/img/motivation-course/training-course-banner-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: {
+        top: 100px;
+        bottom: 100px;
+    };
+    .container-fluid {
+        padding: {
+            left: 60px;
+            right: 60px;
+        };
+    }
+}
+.training-course-banner-content {
+    h1 {
+        font-size: 70px;
+        margin-bottom: 25px;
+        font-weight: bold;
+
+        span {
+            color: var(--mainColor);
+        }
+    }
+    p {
+        margin-bottom: 0;
+        max-width: 650px;
+    }
+    .btn-box {
+        margin-top: 30px;
+    }
+    .trusted-by-content {
+        margin-top: 45px;
+
+        .title {
+            margin-bottom: 25px;
+            color: #002846;
+            font-size: 16px;
+            font-weight: 400;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .single-partner-item {
+            text-align: center;
+            position: relative;
+
+            a {
+                img {
+                    max-width: 90px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .training-course-banner-area {
+        padding: {
+            top: 60px;
+            bottom: 60px;
+        };
+        .container-fluid {
+            padding-right: var(--bs-gutter-x,.75rem);
+            padding-left: var(--bs-gutter-x,.75rem);
+        }
+    }
+    .training-course-banner-content {
+        h1 {
+            font-size: 32px;
+        }
+    }
+    .training-course-banner-image {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    .training-course-banner-area {
+        .container-fluid {
+            max-width: 540px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .training-course-banner-area {
+        padding: {
+            top: 80px;
+            bottom: 80px;
+        };
+        .container-fluid {
+            padding-right: var(--bs-gutter-x,.75rem);
+            padding-left: var(--bs-gutter-x,.75rem);
+            max-width: 720px;
+        }
+    }
+    .training-course-banner-content {
+        h1 {
+            font-size: 55px;
+        }
+    }
+    .training-course-banner-image {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .training-course-banner-area {
+        .container-fluid {
+            max-width: 960px;
+            padding-right: var(--bs-gutter-x,.75rem);
+            padding-left: var(--bs-gutter-x,.75rem);
+        }
+    }
+    .training-course-banner-content {
+        h1 {
+            font-size: 55px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1275px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    .training-course-banner-area {
+        .container-fluid {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1550px) {
+
+    .training-course-banner-area {
+        .container-fluid {
+            max-width: 2000px;
+            padding: {
+                left: 125px;
+                right: 125px;
+            };
+        }
+    }
+
+}

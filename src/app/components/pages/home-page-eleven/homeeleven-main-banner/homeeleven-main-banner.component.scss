@@ -1,0 +1,127 @@
+.gym-main-banner {
+    background: {
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    };
+    padding: {
+        top: 350px;
+        bottom: 247px;
+    };
+    &.bg-1 {
+        background-image: url(../../../../../assets/img/gym-main-banner1.jpg);
+    }
+    &.bg-2 {
+        background-image: url(../../../../../assets/img/gym-main-banner2.jpg);
+    }
+    .container {
+        max-width: 1300px;
+    }
+}
+.gym-banner-content {
+    max-width: 630px;
+
+    .sub-title {
+        text-transform: uppercase;
+        color: var(--mainColor);
+        margin-bottom: 12px;
+        font-weight: 600;
+        display: block;
+    }
+    h1 {
+        margin-bottom: 20px;
+        font: {
+            size: 55px;
+            weight: 700;
+        };
+    }
+    .default-btn {
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .gym-main-banner {
+        padding: {
+            top: 300px;
+            bottom: 140px;
+        };
+        .container {
+            max-width: 100%;
+        }
+    }
+    .gym-banner-content {
+        max-width: 100%;
+        text-align: center;
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+        .sub-title {
+            font-size: 13.5px;
+        }
+        .default-btn {
+            margin-top: 10px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    .gym-main-banner {
+        .container {
+            max-width: 540px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .gym-main-banner {
+        padding: {
+            top: 290px;
+            bottom: 200px;
+        };
+        .container {
+            max-width: 720px;
+        }
+    }
+    .gym-banner-content {
+        h1 {
+            font-size: 44px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .gym-main-banner {
+        padding: {
+            top: 300px;
+            bottom: 200px;
+        };
+        .container {
+            max-width: 960px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1275px) {
+
+    .gym-main-banner {
+        .container {
+            max-width: 1140px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

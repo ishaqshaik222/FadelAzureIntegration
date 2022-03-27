@@ -1,0 +1,164 @@
+.business-coaching-banner {
+    position: relative;
+    padding-top: 50px;
+    z-index: 1;
+    background: {
+        image: url(../../../../../assets/img/business-coaching/banner-bg.jpg);
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    };
+    .container {
+        max-width: 1250px;
+    }
+}
+.business-banner-content {
+    z-index: 1;
+    padding: 70px;
+    position: relative;
+
+    .shape {
+        transform: translateY(-60%);
+        position: absolute;
+        z-index: -1;
+        left: -13%;
+        top: 60%;
+
+        img {
+            max-width: 140%;
+        }
+    }
+    h1 {
+        margin-bottom: 25px;
+        font: {
+            size: 55px;
+            weight: 700;
+        };
+    }
+    p {
+        color: #606060;
+        line-height: 1.8;
+        font: {
+            size: 16px;
+        };
+    }
+    .default-btn {
+        margin-top: 15px;
+    }
+}
+.business-banner-image {
+    text-align: end;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .business-coaching-banner {
+        padding-top: 60px;
+
+        .container {
+            max-width: 100%;
+        }
+    }
+    .business-banner-content {
+        padding: 0;
+        text-align: center;
+
+        .shape {
+            display: none;
+        }
+        h1 {
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+        p {
+            font: {
+                size: 14px;
+                weight: 500;
+            };
+        }
+        .default-btn {
+            margin-top: 8px;
+        }
+    }
+    .business-banner-image {
+        text-align: center;
+        margin-top: 35px;
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    .business-coaching-banner {
+        .container {
+            max-width: 540px;
+        }
+    }
+    .business-banner-content {
+        p {
+            max-width: 415px;
+            margin: {
+                left: auto;
+                right: auto;
+            };
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .business-coaching-banner {
+        padding-top: 80px;
+
+        .container {
+            max-width: 720px;
+        }
+    }
+    .business-banner-content {
+        text-align: center;
+        padding: 30px;
+
+        .shape {
+            display: none;
+        }
+        h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 15px;
+        }
+        .default-btn {
+            margin-top: 10px;
+        }
+    }
+    .business-banner-image {
+        text-align: center;
+        margin-top: 35px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .business-coaching-banner {
+        .container {
+            max-width: 960px;
+        }
+    }
+    .business-banner-content {
+        padding: 0;
+
+        .shape {
+            display: none;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1275px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

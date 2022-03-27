@@ -1,0 +1,30 @@
+@import '../../home-page-eight/homeeight-courses/homeeight-courses.component.scss';
+
+.bg-dark {
+    .courses-info {
+        p {
+            a {
+                &:hover {
+                    color: var(--whiteColor);
+                }
+            }
+        }
+    }
+    .courses-box {
+        background-color: #100f1f;
+        box-shadow: unset !important;
+
+        .courses-image {
+            .price {
+                border-color: #100f1f;
+            }
+        }
+        .courses-content {
+            .courses-box-footer {
+                li {
+                    color: #d4d4d4;
+                }
+            }
+        }
+    }
+}

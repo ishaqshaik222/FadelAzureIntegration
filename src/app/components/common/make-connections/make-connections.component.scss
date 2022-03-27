@@ -1,0 +1,126 @@
+.overview-connections-area {
+    background-color: #282525;
+
+    .section-title {
+        &.text-start {
+            h2 {
+                max-width: 100%;
+                color: var(--whiteColor);
+            }
+        }
+        p {
+            padding-left: 25px;
+            color: var(--whiteColor);
+            max-width: 100%;
+            margin: {
+                top: 0;
+                bottom: 10px;
+            };
+        }
+        .bottom-zero {
+            margin-bottom: 0;
+        }
+    }
+    &.bg-FAF8F8 {
+        background-color: #FAF8F8;
+        margin-top: -162px;
+        padding-top: 255px;
+
+        .section-title {
+            &.text-start {
+                h2 {
+                    color: var(--blackColor);
+                }
+            }
+            p {
+                color: var(--paragraphColor);
+            }
+        }
+        .overview-connections-card {
+            p {
+                color: var(--paragraphColor);
+            }
+        }
+    }
+}
+.overview-connections-card {
+    max-width: 350px;
+
+    h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 18px;
+
+        span {
+            color: var(--mainColor);
+        }
+    }
+    p {
+        color: var(--whiteColor);
+        font-size: var(--fontSize);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .overview-connections-area {
+        .section-title {
+            &.text-start {
+                text-align: start !important;
+
+                h2 {
+                    margin-bottom: 15px;
+                }
+            }
+            p {
+                padding-left: 0;
+            }
+        }
+        &.bg-FAF8F8 {
+            padding-top: 230px;
+        }
+    }
+    .overview-connections-card {
+        h3 {
+            font-size: 18px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .overview-connections-area {
+        &.bg-FAF8F8 {
+            padding-top: 240px;
+        }
+        .section-title {
+            &.text-start {
+                text-align: start !important;
+
+                h2 {
+                    margin-bottom: 15px;
+                }
+            }
+            p {
+                padding-left: 0;
+            }
+        }
+    }
+    .overview-connections-card {
+        h3 {
+            font-size: 18px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1275px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

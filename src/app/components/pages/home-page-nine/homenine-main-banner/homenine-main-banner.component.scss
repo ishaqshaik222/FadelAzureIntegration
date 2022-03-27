@@ -1,0 +1,297 @@
+.health-coaching-banner {
+    .container-fluid {
+        padding: {
+            left: 60px;
+            right: 60px;
+        };
+    }
+}
+.single-banner-item {
+    padding: {
+        top: 205px;
+        bottom: 205px;
+        left: 175px;
+        right: 175px;
+    };
+    background: {
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    };
+    &.bg-1 {
+        background-image: url(../../../../../assets/img/health-coaching/main-banner1.jpg);
+    }
+    &.bg-2 {
+        background-image: url(../../../../../assets/img/health-coaching/main-banner2.jpg);
+    }
+    h1 {
+        max-width: 675px;
+        margin-bottom: 35px;
+        color: var(--mainColor2);
+        font: {
+            size: 70px;
+            weight: 700;
+        };
+    }
+    p {
+        color: var(--blackColor);
+        max-width: 590px;
+        font: {
+            weight: 600;
+            size: 16px;
+        };
+    }
+    .default-btn {
+        margin-top: 15px;
+    }
+}
+.health-coaching-bg-image {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        content: '';
+        height: 73.5%;
+        position: absolute;
+        background: {
+            image: url(../../../../../assets/img/health-coaching/bg-image.jpg);
+            position: center center;
+            repeat: no-repeat;
+            size: cover;
+        };
+    }
+}
+.featured-area {
+    .section-title {
+        h2 {
+            color: var(--whiteColor);
+        }
+        p {
+            color: var(--whiteColor);
+            opacity: 0.95;
+        }
+    }
+}
+.single-featured-box {
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 40px 30px;
+    transition: var(--transition);
+    border: 1px dashed #6ba292;
+
+    .icon {
+        width: 110px;
+        height: 110px;
+        line-height: 110px;
+        background-color: var(--whiteColor);
+        font-size: 65px;
+        color: var(--mainColor2);
+        transition: var(--transition);
+        border-radius: 50%;
+        margin: {
+            left: auto;
+            bottom: 25px;
+            right: auto;
+        };
+    }
+    h3 {
+        margin-bottom: 15px;
+        color: var(--whiteColor);
+        transition: var(--transition);
+        font: {
+            size: 24px;
+            weight: 700;
+        };
+    }
+    p {
+        transition: var(--transition);
+        color: var(--whiteColor);
+    }
+    .link-btn {
+        display: inline-block;
+        color: var(--mainColor);
+        font-weight: 600;
+        margin-top: 5px;
+    }
+    &:hover {
+        background-color: var(--whiteColor);
+        border-color: var(--whiteColor);
+
+        .icon {
+            color: var(--whiteColor);
+            background-color: var(--mainColor2);
+        }
+        h3 {
+            color: var(--blackColor);
+        }
+        p {
+            color: var(--blackColor);
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .health-coaching-banner {
+        .container-fluid {
+            padding: {
+                left: 15px;
+                right: 15px;
+            };
+        }
+    }
+    .single-banner-item {
+        text-align: center;
+        padding: {
+            top: 60px;
+            bottom: 120px;
+            left: 15px;
+            right: 15px;
+        };
+        h1 {
+            margin-bottom: 20px;
+            max-width: 100%;
+            font-size: 34px;
+
+            br {
+                display: none;
+            }
+        }
+        p {
+            max-width: 100%;
+            font-size: 14px;
+        }
+        .default-btn {
+            margin-top: 10px;
+        }
+    }
+    .health-coaching-bg-image {
+        &::before {
+            height: 90%;
+        }
+    }
+    .single-featured-box {
+        padding: 20px 15px;
+
+        .icon {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+        h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    .health-coaching-banner {
+        .container-fluid {
+            max-width: 540px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .health-coaching-banner {
+        .container-fluid {
+            max-width: 720px;
+            padding: {
+                left: 15px;
+                right: 15px;
+            };
+        }
+    }
+    .single-banner-item {
+        text-align: center;
+        padding: {
+            top: 100px;
+            bottom: 100px;
+            left: 70px;
+            right: 70px;
+        };
+        h1 {
+            max-width: 675px;
+            margin-bottom: 20px;
+            font-size: 50px;
+            margin: {
+                left: auto;
+                right: auto;
+            };
+        }
+        p {
+            max-width: 500px;
+            font-size: 15px;
+            margin: {
+                left: auto;
+                right: auto;
+            };
+        }
+        .default-btn {
+            margin-top: 10px;
+        }
+    }
+    .single-featured-box {
+        .icon {
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            font-size: 55px;
+        }
+        h3 {
+            font-size: 22px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .health-coaching-banner {
+        .container-fluid {
+            max-width: 960px;
+            padding: {
+                left: 15px;
+                right: 15px;
+            };
+        }
+    }
+    .single-banner-item {
+        padding: {
+            top: 180px;
+            bottom: 180px;
+            left: 110px;
+            right: 110px;
+        };
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1275px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {
+
+    .health-coaching-banner {
+        .container-fluid {
+            padding: {
+                left: 125px;
+                right: 125px;
+            };
+        }
+    }
+
+}

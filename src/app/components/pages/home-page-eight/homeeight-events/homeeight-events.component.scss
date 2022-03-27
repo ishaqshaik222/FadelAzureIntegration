@@ -1,0 +1,147 @@
+.events-area {
+    position: relative;
+    z-index: 1;
+}
+.events-box {
+    margin-bottom: 30px;
+    background-color: var(--whiteColor);
+    border-radius: 5px;
+
+    .image {
+        height: 100%;
+        border-radius: 5px;
+        position: relative;
+        background: {
+            position: center center;
+            size: cover;
+            repeat: no-repeat;
+        };
+        &.bg1 {
+            background-image: url(../../../../../assets/img/business-coaching/events-img1.jpg);
+        }
+        &.bg2 {
+            background-image: url(../../../../../assets/img/business-coaching/events-img2.jpg);
+        }
+        &.bg3 {
+            background-image: url(../../../../../assets/img/business-coaching/events-img3.jpg);
+        }
+        &.bg4 {
+            background-image: url(../../../../../assets/img/business-coaching/events-img4.jpg);
+        }
+        img {
+            display: none;
+            border-radius: 5px;
+        }
+        .divider-shape {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            height: 100%;
+            width: 2vw;
+            max-width: 72px;
+            right: -1px;
+            pointer-events: none;
+            mask-image: url("data:image/svg+xml;utf8,%3csvg viewBox='0 0 100 100' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3e%3cpath d='M0,0 C16.6666667,66 33.3333333,99 50,99 C66.6666667,99 83.3333333,66 100,0 L100,100 L0,100 L0,0 Z' fill='%23fff' fill-rule='evenodd' transform='translate(50.000000, 50.000000) rotate(-90.000000) translate(-50.000000, -50.000000)' /%3e%3c/svg%3e");
+            mask-size: 100% 101%;
+            background-color: var(--whiteColor);
+        }
+    }
+    .content {
+        padding: 30px;
+
+        .date {
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+            border-radius: 5px;
+            padding: 6px 15px;
+            background-color: var(--mainColor);
+
+            span {
+                color: var(--whiteColor);
+                font: {
+                    weight: 500;
+                };
+            }
+        }
+        h3 {
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font: {
+                size: 22px;
+                weight: 700;
+            };
+            a {
+                display: inline-block;
+            }
+        }
+        .location {
+            display: block;
+            color: var(--paragraphColor);
+            margin-top: 10px;
+            position: relative;
+            padding-left: 22px;
+            font: {
+                weight: 500;
+            };
+            i {
+                color: var(--mainColor);
+                position: absolute;
+                left: 0;
+                top: 1px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .events-box {
+        .image {
+            height: auto;
+            background-image: unset !important;
+
+            img {
+                display: inline-block;
+            }
+            .divider-shape {
+                display: none;
+            }
+        }
+        .content {
+            padding: 20px;
+
+            h3 {
+                font-size: 18px;
+            }
+            .date {
+                margin-bottom: 17px;
+                padding: 5px 10px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .events-box {
+        .content {
+            h3 {
+                font-size: 20px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1275px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}
