@@ -183,21 +183,26 @@ import { HomefourteenAboutComponent } from './components/pages/home-page-fourtee
 import { FreeTrialFormComponent } from './components/common/free-trial-form/free-trial-form.component';
 import { FunfactsStyleFourComponent } from './components/common/funfacts-style-four/funfacts-style-four.component';
 import { environment } from 'src/environments/environment';
-import { Configuration } from 'msal';
+import { IPublicClientApplication, PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { MsalGuard, MsalBroadcastService, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MsalGuardConfiguration, MsalRedirectComponent } from '@azure/msal-angular';
 
-function MSALConfigFactory(): Configuration {
-  return {
-    auth: {
-      clientId: environment.clientId,
-      authority: environment.authority,
-      validateAuthority: true,
-      redirectUri: environment.redirectUrl,
-      postLogoutRedirectUri: environment.redirectUrl,
-      navigateToLoginRequestUrl: true
-    },
-    cache: {
-      storeAuthStateInCookie: false,
-    }
+import { msalConfig } from '../auth-config';
+
+/**
+ * Here we pass the configuration parameters to create an MSAL instance.
+ * For more info, visit: https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/configuration.md
+ */
+export function MSALInstanceFactory(): IPublicClientApplication {
+  return new PublicClientApplication(msalConfig);
+}
+
+/**
+ * Set your default interaction type for MSALGuard here. If you have any
+ * additional scopes you want the user to consent upon login, add them here as well.
+ */
+export function MSALGuardConfigFactory(): MsalGuardConfiguration {
+  return { 
+    interactionType: InteractionType.Redirect,
   };
 }
 
@@ -389,7 +394,18 @@ function MSALConfigFactory(): Configuration {
     LightgalleryModule
   ],
   providers: [ 
+    {
+      provide: MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory
+    },
+    {
+      provide: MSAL_GUARD_CONFIG,
+      useFactory: MSALGuardConfigFactory
+    }, 
+    MsalService,
+    MsalGuard,
+    MsalBroadcastService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,MsalRedirectComponent]
 })
 export class AppModule { }
