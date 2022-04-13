@@ -187,6 +187,9 @@ import { IPublicClientApplication, PublicClientApplication, InteractionType } fr
 import { MsalGuard, MsalBroadcastService, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MsalGuardConfiguration, MsalRedirectComponent } from '@azure/msal-angular';
 
 import { msalConfig } from '../auth-config';
+import { ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 /**
  * Here we pass the configuration parameters to create an MSAL instance.
@@ -391,12 +394,16 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     LightboxModule,
     FormsModule,
     AccordionModule,
-    LightgalleryModule
+    LightgalleryModule,
+    ReactiveFormsModule,
+    HttpClientModule 
   ],
   providers: [ 
     {
       provide: MSAL_INSTANCE,
-      useFactory: MSALInstanceFactory
+      useFactory: MSALInstanceFactory,
+      
+  
     },
     {
       provide: MSAL_GUARD_CONFIG,
@@ -404,7 +411,8 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     }, 
     MsalService,
     MsalGuard,
-    MsalBroadcastService
+    MsalBroadcastService,
+    DatePipe
   ],
   bootstrap: [AppComponent,MsalRedirectComponent]
 })

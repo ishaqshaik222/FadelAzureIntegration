@@ -64,6 +64,7 @@ export class AppComponent {
         this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
       }
     
+      
       login() {
         if (this.msalGuardConfig.interactionType === InteractionType.Popup) {
           if (this.msalGuardConfig.authRequest){

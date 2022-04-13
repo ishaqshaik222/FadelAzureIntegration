@@ -19,7 +19,7 @@
                 <div class="products-details-image">
                     <owl-carousel-o [options]="detailsImageSlides">
                         <ng-template carouselSlide>
-                            <img src="assets/img/shop/shop1.jpg" alt="image">
+                            <img src="{{ImageURL}}" alt="image">
                         </ng-template>
                         <ng-template carouselSlide>
                             <img src="assets/img/shop/shop2.jpg" alt="image">
@@ -38,10 +38,10 @@
             </div>
             <div class="col-lg-7 col-md-12">
                 <div class="product-details-desc">
-                    <h3>Book Chicks</h3>
+                    <h3>{{courseName}}</h3>
                     <div class="price">
-                        <span class="new-price">$541.00</span>
-                        <span class="old-price">$652.00</span>
+                        <span class="new-price">{{offerprice}}</span>
+                        <span class="old-price">{{price}}</span>
                     </div>
                     <div class="product-review">
                         <div class="rating">
@@ -53,11 +53,11 @@
                         </div>
                         <a routerLink="/" class="rating-count">3 reviews</a>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                    <p>{{description}}.</p>
                     <div class="product-meta">
                         <span>SKU: <span class="sku">10</span></span>
                         <span>Availability: <span class="in-stock">In Stock</span></span>
-                        <span>Category: <a routerLink="/">Business</a></span>
+                        <span>Category: <a routerLink="/">{{technologyName}}</a></span>
                         <span>Tag: <a routerLink="/">Book</a></span>
                     </div>
                     <div class="product-add-to-cart">
@@ -85,7 +85,7 @@
                     <ngx-tabset>
                         <ngx-tab tabTitle="Description">
                             <div class="products-details-tab-content">
-                                <p>Design inspiration lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum.  Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Nulla libero. Vivamus pharetra posuere sapien.</p>
+                                <p [innerHTML]="fullDescription">.</p>
                             </div>
                         </ngx-tab>
                         <ngx-tab tabTitle="Additional information">
