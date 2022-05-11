@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { clear } from 'console';
 import { AuthService } from '../../auth.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { AuthService } from '../../auth.service';
 })
 export class StudentsFeedbackFormComponent implements OnInit {
   studentForm: FormGroup;
+  success: string;
 
   constructor(
     private _authService: AuthService,
@@ -26,6 +28,13 @@ export class StudentsFeedbackFormComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  clear(){
+    this.studentForm.controls['name'].setValue('')
+    this.studentForm.controls['address'].setValue('')
+    this.studentForm.controls['email'].setValue('')
+    this.studentForm.controls['phoneno'].setValue('')
+    this.studentForm.controls['description'].setValue('')
+  }
 
   SendMsg()
   {
@@ -39,8 +48,12 @@ export class StudentsFeedbackFormComponent implements OnInit {
            var result = JSON.parse(result);
             if (result.status == "200") {
                 //debugger
+                this.success="Feedback submitted succesfully";
                 setTimeout(() => {
-                }, 1000);
+                  this.success="";
+                  this.clear();
+                  // window.location.reload()
+                }, 2000);
             }
             else {
             }

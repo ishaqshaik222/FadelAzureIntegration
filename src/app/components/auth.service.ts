@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor(private _httpClient: HttpClient) {
     this.baseUrl = 'https://localhost:44358/';
-    //this.baseUrl = 'http://testugetitapi.fadelsoft.com/';
+     //this.baseUrl = 'http://testugetitapi.fadelsoft.com/';
    }
    public SendMsg(data) {
     debugger
@@ -34,5 +34,9 @@ export class AuthService {
   public GetcourseById(id) {
     //debugger
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetCourseById", {params: {id}});
+  }
+  public getchapters(id) {
+    debugger
+  return this._httpClient.get(this.baseUrl + "api/UIMain/Getcoursecontentbycourseid",{params: {id}});
   }
 }

@@ -391,25 +391,26 @@
                 </div>
                 <div class="courses-sidebar-syllabus">
                     <h3>Course Syllabus</h3>
-                    <span class="chapter">Chapter 1</span>
+                    <div  *ngFor="let chapter of chapters">
+                    <span class="chapter">{{chapter.chapter}}</span>
                     <h4>Lessons</h4>
                     <div class="courses-list">
                         <ul>
-                            <li>
+                            <!-- <li>
                                 Introduction
-                            </li>
+                            </li> -->
                             <li>
-                                <a routerLink="/single-courses">
-                                    <span class="number">1.</span> Secret 1: Sell The Problem, Not The Solution (14:37) <span class="free-lesson">Free</span>
+                                <a>
+                                    <span class="number">1.</span>{{chapter.contentDescription}}
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 Quiz - Secret 1: Sell The Problem, Not The Solution
-                            </li>
-                            <li>
+                            </li> -->
+                            <!-- <li>
                                 <span class="number">2.</span> Secret 2: Think Like a Magazine, Not a Salesman (4:30)
-                            </li>
-                            <li>
+                            </li> -->
+                            <!-- <li>
                                 Quiz - Secret 2: Think Like a Magazine, Not a Salesman
                             </li>
                             <li>
@@ -441,10 +442,11 @@
                             </li>
                             <li>
                                 Quiz - Secret 7: Be a Shadow, Not a Ghost
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
-                    <span class="chapter">Chapter 2</span>
+                    </div>
+                    <!-- <span class="chapter">Chapter 2</span>
                     <h4>Final Quiz</h4>
                     <div class="courses-list">
                         <ul>
@@ -452,7 +454,7 @@
                                 Final Quiz
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="courses-purchase-info">
                     <h4>Interested in this course for your Business or Team?</h4>

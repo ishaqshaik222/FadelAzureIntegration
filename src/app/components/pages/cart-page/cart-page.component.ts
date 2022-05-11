@@ -29,6 +29,15 @@ export class CartPageComponent implements OnInit {
 
   ngOnInit(): void {
     var id = this.approute.snapshot.params['id'];
+    // localStorage.setItem(i,1);
+
+    // var courseids = [];
+
+    // courseids[0] = prompt("New member name?");
+    //     localStorage.setItem("names", JSON.stringify(courseids));
+
+//...
+var storedNames = JSON.parse(localStorage.getItem("courseids"));
     this.Edit(id);
   }
   Edit(id: any) {

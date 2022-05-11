@@ -11,7 +11,7 @@ import { AuthService } from '../../auth.service';
 export class CoursesDetailsPageComponent implements OnInit {
   ImageURL: any;
   courseName: any;
-  description: any;
+  description: string;
   fullDescription: string;
   requirements: string;
   whatLearn: string;
@@ -20,6 +20,8 @@ export class CoursesDetailsPageComponent implements OnInit {
   updatedDate: any;
   courseId: any;
   offerprice: any;
+  chapters: any;
+  contentDescription: string;
 
   constructor(
     private approute: ActivatedRoute,
@@ -30,7 +32,9 @@ export class CoursesDetailsPageComponent implements OnInit {
   ngOnInit(): void {
     // var loginId = localStorage.getItem("LoginId");
     var id = this.approute.snapshot.params['id'];
+    this.courseId=id
     this.Edit(id);
+    this.getchapters(id);
   }
   Edit(id: any) {
     debugger
@@ -74,21 +78,33 @@ export class CoursesDetailsPageComponent implements OnInit {
           // this.ImageURL = baseurl + "/courseFiles/dummy identityproof.png";
 
         }
-
-        // if (finalresult.result.isActive == true) {
-        //     var check = document.getElementById("userchkactive") as HTMLInputElement;
-        //     check.checked = true;
-        // }
-        // else {
-        //     var check = document.getElementById("userchkactive") as HTMLInputElement;
-        //     check.checked = false;
-        // }
-        //  this.spinner.hide();
       }
       else {
 
       }
     });
   }
+  getchapters(id: any,) {
+    debugger
+    this._authService.getchapters(id).subscribe((finalresult: any) => {
+      debugger
+      // var finalresult = JSON.parse(finalresult);
+      if (finalresult.status == "200") {
+        console.log('chapters',finalresult.result)
+        this.chapters=finalresult.result;
+        for(let i=0 ; i< this.chapters.length; i++){
+          this.chapters[i].contentDescription =this.chapters[i].contentDescription.replace(/<[^>]*>/g, '')
+        }
+      }
+      else {
+
+      }
+    });
+  }
+  // Addcourse(){
+  //   console.log (this.courseId)
+  //   //routerLink="/cart/{{courseId}}"
+
+  // }
 
 }
