@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 
 @Component({
@@ -22,11 +22,14 @@ export class CoursesDetailsPageComponent implements OnInit {
   offerprice: any;
   chapters: any;
   contentDescription: string;
+  courseids: any=[];
 
   constructor(
     private approute: ActivatedRoute,
     private _authService: AuthService,
-    private datepipe: DatePipe
+    private datepipe: DatePipe,
+    private _router: Router,
+
   ) { }
 
   ngOnInit(): void {
@@ -84,6 +87,32 @@ export class CoursesDetailsPageComponent implements OnInit {
       }
     });
   }
+
+  BuyNow(id:any){
+    debugger
+    this.courseids=id
+    localStorage.setItem('cartcourseid',this.courseids);
+    var data={
+      UserId:1,
+      ProductId:parseInt(this.courseids),
+      CreatedBy:1
+    }
+    this._authService.AddCartItem(data).subscribe((finalresult: any) => {
+      debugger
+      var finalresult=JSON.parse(finalresult)
+      if(finalresult.status=="200"){
+        this._router.navigate(['/cart']);
+      }
+      else if(finalresult.status=="104"){
+        this._router.navigate(['/cart']);
+      }
+      else{
+        
+      }
+    })
+
+  }
+
   getchapters(id: any,) {
     debugger
     this._authService.getchapters(id).subscribe((finalresult: any) => {

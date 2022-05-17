@@ -123,7 +123,8 @@ const routes: Routes = [
     {path: 'shop-grid', component: ShopGridPageComponent},
     {path: 'shop-grid-fullwidth', component: ShopFullWidthPageComponent},
     {path: 'single-products/:id', component: ProductsDetailsPageComponent},
-    {path: 'cart/:id', component: CartPageComponent},
+    // {path: 'cart/:id', component: CartPageComponent},
+    {path: 'cart', component: CartPageComponent},
     {path: 'checkout', component: CheckoutPageComponent},
     {path: 'contact', component: ContactPageComponent},
     // Here add new pages component

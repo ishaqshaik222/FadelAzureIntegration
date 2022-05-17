@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,9 @@ export class AuthService {
     debugger
     return this._httpClient.get(this.baseUrl + "api/UIMain/Getcompanymaster", {responseType: 'text'});
   }
-  public GetCourses() {
+  public GetCourses(): Observable<any> {
     debugger
-    return this._httpClient.get(this.baseUrl + "api/UIMain/GetAllCourses", {responseType: 'text'});
+    return this._httpClient.get(this.baseUrl + "api/UIMain/GetAllCourses");
   }
   public Gettechnologies() {
     debugger
@@ -38,5 +39,24 @@ export class AuthService {
   public getchapters(id) {
     debugger
   return this._httpClient.get(this.baseUrl + "api/UIMain/Getcoursecontentbycourseid",{params: {id}});
+  }
+  public AddCartItem(data:any){
+    return this._httpClient.post(this.baseUrl + "api/UIMain/AddCartItem", data, {responseType: 'text'});
+
+  }
+  public GetCartItems(id) {
+    debugger
+  return this._httpClient.get(this.baseUrl + "api/UIMain/GetCartItemsByUserId",{params: {id}});
+  }
+
+  public DeleteCartItem(id:any){
+    debugger
+    return this._httpClient.delete(this.baseUrl + "api/UIMain/DeleteCartItem?id=" + id);
+
+  }
+
+  public PayNow(data:any){
+    return this._httpClient.post(this.baseUrl + "api/UIMain/PaymentGateway", data, {responseType: 'text'});
+
   }
 }

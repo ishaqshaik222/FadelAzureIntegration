@@ -11,8 +11,7 @@
         </div>
     </div>
 </div>
-
-<div class="cart-area ptb-100">
+<div class="cart-area ptb-100" >
     <div class="container">
         <form>
             <div class="cart-table table-responsive">
@@ -22,36 +21,40 @@
                             <th scope="col">Product</th>
                             <th scope="col">Course Name</th>
                             <th scope="col">Course Price</th>
-                            <!-- <th scope="col">Quantity</th> -->
+                            <th scope="col">Tax</th>
                             <th scope="col">Total</th>
                             <th scope="col">Remove</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let item of carttable">
                             <td class="product-thumbnail">
-                                <a routerLink="/single-products/{{courseId}}">
-                                    <img src="{{ImageURL}}" alt="item">
+                                <a routerLink="/single-products/{{item.courseId}}">
+                                    <img src="{{item.imageURL}}" alt="item">
                                 </a>
                             </td>
                             <td class="product-name">
-                                <a routerLink="/single-products">{{courseName}}</a>
+                                <a routerLink="/single-products">{{item.coursename}}</a>
                             </td>
                             <td class="product-price">
-                                <span class="unit-amount">₹{{price}}</span>
+                                <span class="unit-amount">₹{{item.price}}</span>
                             </td>
                             <!-- <td class="product-quantity">
                                 <div class="input-counter">
                                     <input type="number" min="1" value="1">
                                 </div>
                             </td> -->
+                            <td class="product-Tax">
+                                <span class="Tax-amount">₹{{item.Tax}}</span>
+                                <!-- <a routerLink="/cart" class="remove"><i class='bx bx-trash'></i></a> -->
+                            </td>
                             <td class="product-subtotal">
-                                <span class="subtotal-amount">₹{{price}}</span>
+                                <span class="subtotal-amount">₹{{item.TotalPrice}}</span>
                                 <!-- <a routerLink="/cart" class="remove"><i class='bx bx-trash'></i></a> -->
                             </td>
                             <td class="product-subtotal">
                                 <span>
-                                    <a (click)="Delete();" class="remove"><i class='bx bx-trash'></i></a>
+                                    <a (click)="Delete(item.cartId)" class="remove"><i class='bx bx-trash'></i></a>
                                 </span>
                                 
                             </td>
@@ -141,12 +144,15 @@
             <div class="cart-totals">
                 <h3>Cart Totals</h3>
                 <ul>
-                    <li>Subtotal <span>₹{{price}}  </span></li>
-                    <li>Shipping <span>₹30.00</span></li>
-                    <li>Total <span>₹1713.50</span></li>
+                    <li>Subtotal <span>₹{{TotalPrice}}  </span></li>
+                    <li>Tax <span>₹{{Tax}}  </span></li>
+                    <!-- <li>Shipping <span>₹30.00</span></li> -->
+                    <li>Total <span>{{Total}}</span></li>
                 </ul>
                 <a routerLink="/checkout" class="default-btn"><i class='bx bx-shopping-bag icon-arrow before'></i><span class="label">Proceed to Checkout</span><i class="bx bx-shopping-bag icon-arrow after"></i></a>
             </div>
         </form>
     </div>
 </div>
+
+

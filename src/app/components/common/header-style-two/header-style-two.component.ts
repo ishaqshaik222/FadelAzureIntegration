@@ -8,10 +8,12 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderStyleTwoComponent implements OnInit {
     id:string="";
     loggedIn:boolean=false
+    cartlength: string;
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-debugger;
+        debugger;
+        this.cartlength=localStorage.getItem('cartlength')
         // this.id = this.route.snapshot.paramMap.get('id_token');
         if(window.location.hash != "" && sessionStorage.getItem("hashLogin")== null){
             this.id =window.location.hash

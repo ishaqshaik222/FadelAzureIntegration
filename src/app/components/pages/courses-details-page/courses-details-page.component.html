@@ -55,7 +55,9 @@
                             <span class="reviews-total d-inline-block">(2 reviews)</span>
                         </div>
                         <div class="price">₹{{price}}</div>
-                        <a routerLink="/cart/{{courseId}}" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Buy Course</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
+                        <!-- <a routerLink="/cart/{{courseId}}" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Buy Course</span><i class="bx bx-paper-plane icon-arrow after"></i></a> -->
+                        <a  class="default-btn" (click)="BuyNow(courseId)"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Buy Course</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
+
                     </div>
                 </div>
             </div>

@@ -67,7 +67,7 @@ export class HometwoCoursesComponent implements OnInit {
     debugger
     this._authService.GetCourses().subscribe((finalresult: any) => {
       debugger
-      var finalresult = JSON.parse(finalresult);
+      // var finalresult = JSON.parse(finalresult);
       if (finalresult.status == "200") {
         debugger
         console.log(finalresult.result)
