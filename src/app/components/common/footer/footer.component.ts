@@ -27,12 +27,9 @@ export class FooterComponent implements OnInit {
   }
   GetCopyRights()
   {
-      debugger
       this._authService.GetCopyRights().subscribe((result: any) => {
-          debugger
            var result = JSON.parse(result);
             if (result.status == "200") {
-                debugger
                 console.log(result.result)
                 this.year= result.result[0].year;
                 this.copyRight= result.result[0].copyRight;
@@ -50,12 +47,11 @@ export class FooterComponent implements OnInit {
   }
   GetCompanydetails()
   {
-      debugger
+      
       this._authService.GetCompanydetails().subscribe((result: any) => {
-          debugger
            var result = JSON.parse(result);
             if (result.status == "200") {
-                debugger
+                
                 console.log(result.result)
                 this.address= result.result[0].address;
                 this.phoneNo= result.result[0].phoneNo;

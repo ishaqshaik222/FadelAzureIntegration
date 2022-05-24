@@ -23,6 +23,7 @@ export class CoursesDetailsPageComponent implements OnInit {
   chapters: any;
   contentDescription: string;
   courseids: any=[];
+  ImageUrl: string;
 
   constructor(
     private approute: ActivatedRoute,
@@ -30,9 +31,12 @@ export class CoursesDetailsPageComponent implements OnInit {
     private datepipe: DatePipe,
     private _router: Router,
 
-  ) { }
+  ) {
+    // debugger
+   }
 
   ngOnInit(): void {
+    debugger
     // var loginId = localStorage.getItem("LoginId");
     var id = this.approute.snapshot.params['id'];
     this.courseId=id
@@ -54,7 +58,8 @@ export class CoursesDetailsPageComponent implements OnInit {
       //  var finalresult = JSON.parse(result);
       // rolebyid=finalresult;
       if (finalresult.status == "200") {
-        debugger
+        localStorage.setItem("ImageUrl",finalresult.result.imageURL);
+
         this.courseId=finalresult.result.courseId
         this.courseName=finalresult.result.courseName
         this.description=(finalresult.result.description.replace(/<[^>]*>/g, ''))
@@ -64,6 +69,7 @@ export class CoursesDetailsPageComponent implements OnInit {
         this.whatLearn=(finalresult.result.whatLearn).toString();
         this.technologyName=finalresult.result.technologyName;
         // this.updatedDate=finalresult.result.updatedDate;
+        this.ImageUrl=baseurl+finalresult.result.imageURL
         this.updatedDate=this.datepipe.transform(finalresult.result.updatedDate, 'dd-MM-yyyy')
         
         this.price=finalresult.result.price;

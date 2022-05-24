@@ -59,4 +59,9 @@ export class AuthService {
     return this._httpClient.post(this.baseUrl + "api/UIMain/PaymentGateway", data, {responseType: 'text'});
 
   }
+
+  public GetCoursesForMenu() {
+    debugger
+    return this._httpClient.get(this.baseUrl + "api/UIMain/GetCourses", {responseType: 'text'});
+  }
 }
