@@ -1,5 +1,67 @@
 @import "../home-page-one/homeone-courses/homeone-courses.component.scss";
 
+:host {
+    display: block;
+    font-size: 1rem;
+  
+    .accordions {
+      display: flex;
+      justify-content: center;
+  
+      .accordion {
+        margin: 2rem;
+        background: rgba(0, 0, 0, 0.08);
+        width: 300px;
+        padding: 1rem;
+        min-height: 400px;
+        max-height: 600px;
+        overflow-y: auto;
+      }
+    }
+  
+    ngx-accordion {
+      color: #9d9d9d;
+  
+      ::ng-deep {
+        fa-icon {
+          display: inline-block;
+          padding-right: 0.5rem;
+        }
+  
+        ngx-accordion-group-element,
+        ngx-accordion-group-child {
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+  
+        ngx-accordion-group {
+          padding: 0.75rem 0;
+          border-bottom: 1px #c2c2c2 solid;
+  
+          .ngx-accordion-group-content {
+            padding: 0.25rem 0;
+            padding-left: 1.65rem;
+          }
+  
+          .ngx-accordion-group-active {
+            color: #000;
+          }
+        }
+  
+        ngx-accordion-group-child {
+          padding: 0.25rem 0;
+  
+          .ngx-accordion-group-child-active {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+  
+
 .courses-details-header {
     margin-bottom: 30px;
 

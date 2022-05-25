@@ -17,19 +17,17 @@ export class AuthService {
     return this._httpClient.post(this.baseUrl + "api/UIMain/StudentMessage", data, {responseType: 'text'});
   }
   public GetCopyRights() {
-    debugger
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetRightsReserved", {responseType: 'text'});
   }
   public GetCompanydetails() {
-    debugger
     return this._httpClient.get(this.baseUrl + "api/UIMain/Getcompanymaster", {responseType: 'text'});
   }
   public GetCourses(): Observable<any> {
-    debugger
+    
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetAllCourses");
   }
   public Gettechnologies() {
-    debugger
+    
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetAllTechnologies", {responseType: 'text'});
   }
   public GetcourseById(id) {
@@ -37,7 +35,7 @@ export class AuthService {
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetCourseById", {params: {id}});
   }
   public getchapters(id) {
-    debugger
+    
   return this._httpClient.get(this.baseUrl + "api/UIMain/Getcoursecontentbycourseid",{params: {id}});
   }
   public AddCartItem(data:any){
@@ -61,7 +59,11 @@ export class AuthService {
   }
 
   public GetCoursesForMenu() {
-    debugger
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetCourses", {responseType: 'text'});
+  }
+
+  public GetModuleByCourseID(ID:any) {
+    
+    return this._httpClient.get(this.baseUrl + "api/UIMain/GetModuleByCourseID",{params: {ID}});
   }
 }

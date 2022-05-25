@@ -48,7 +48,6 @@ export class AppComponent {
     }
 
     recallJsFuntions() {
-        debugger;
         this.routerSubscription = this.router.events
         .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
         .subscribe(event => {

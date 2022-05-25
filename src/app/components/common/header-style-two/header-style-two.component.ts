@@ -33,7 +33,6 @@ export class HeaderStyleTwoComponent implements OnInit {
         ) { }
 
     ngOnInit(): void {
-        debugger;
         this.cartlength=localStorage.getItem('cartlength')
         // this.id = this.route.snapshot.paramMap.get('id_token');
         if(window.location.hash != "" && sessionStorage.getItem("hashLogin")== null){
@@ -69,9 +68,7 @@ export class HeaderStyleTwoComponent implements OnInit {
     }
 
     GetTechnologies(){
-        debugger
         this._authService.GetCoursesForMenu().subscribe((finalresult: any) => {
-            debugger
             var values=JSON.parse(finalresult)
             this.technologies=values.result;
 

@@ -187,6 +187,125 @@
                         <li>SQL Programmers who want to develop business reasoning and apply their knowledge to the solution of various business tasks</li>
                         <li>People interested in a Business Intelligence Analyst career</li>
                     </ul> -->
+                     <!-- accordion with custom "clickable zone" -->
+                     <div class="col-lg-12 col-md-12">
+                        <div class="faq-accordion faq-accordion-style-two">
+                            <h3>Course content</h3>
+                            <accordion>
+                                <accordion-group *ngFor="let item of finaltabledata" heading={{item.moduleName}} [isOpened]="true">
+                                    <!-- <p>Associate: a two-year program that either leads to a specific vocation or transitions to a bachelor program. Bachelor: a four or five-year program where students earn credits in a wide variety of courses.</p> -->
+
+                                    <p *ngFor="let value of item.model">{{value.chapter}}.</p>
+                                </accordion-group>
+                                <!-- <accordion-group heading="What are the different types of graduate degrees?">
+                                    <p>Associate: a two-year program that either leads to a specific vocation or transitions to a bachelor program. Bachelor: a four or five-year program where students earn credits in a wide variety of courses.</p>
+                                </accordion-group> -->
+                               
+                            </accordion>
+                        </div>
+                    </div>
+                     <!-- <div class="accordions">
+                        <div class="accordion">
+                          <h2>Standard accordion</h2>
+                          <ngx-accordion>
+                            <ngx-accordion-group>
+                              <ngx-accordion-group-element>
+                                <span class="plus"> Fruits</span>
+                              </ngx-accordion-group-element>
+                              <ngx-accordion-group-child> Banana</ngx-accordion-group-child>
+                              <ngx-accordion-group-child> Orange</ngx-accordion-group-child>
+                            </ngx-accordion-group>
+                            <ngx-accordion-group [active]="true">
+                              <ngx-accordion-group-element>
+                                Vegetables
+                              </ngx-accordion-group-element>
+                              <ngx-accordion-group-child>Carrot</ngx-accordion-group-child>
+                            </ngx-accordion-group>
+                            <ngx-accordion-group>
+                              <ngx-accordion-group-element>
+                                 Cookies
+                              </ngx-accordion-group-element>
+                              <ngx-accordion-group-child>Butter cookie</ngx-accordion-group-child>
+                              <ngx-accordion-group-child>Macaron</ngx-accordion-group-child>
+                            </ngx-accordion-group>
+                            <ngx-accordion-group>
+                              <ngx-accordion-group-element>
+                                 Books
+                              </ngx-accordion-group-element>
+                            </ngx-accordion-group>
+                          </ngx-accordion>
+                        </div>
+                    
+                      </div> -->
+
+                    <div class="courses-sidebar-syllabus">
+                        <h3>Course Syllabus</h3>
+                        <div  *ngFor="let chapter of chapters">
+                        <span class="chapter">{{chapter.chapter}}</span>
+                        <h4>Lessons</h4>
+                        <div class="courses-list">
+                            <ul>
+                                <!-- <li>
+                                    Introduction
+                                </li> -->
+                                <li>
+                                    <a>
+                                        <span class="number">1.</span>{{chapter.contentDescription}}
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    Quiz - Secret 1: Sell The Problem, Not The Solution
+                                </li> -->
+                                <!-- <li>
+                                    <span class="number">2.</span> Secret 2: Think Like a Magazine, Not a Salesman (4:30)
+                                </li> -->
+                                <!-- <li>
+                                    Quiz - Secret 2: Think Like a Magazine, Not a Salesman
+                                </li>
+                                <li>
+                                    <span class="number">3.</span> Secret 3: Content Is King, but Consistency Is Queen (3:56)
+                                </li>
+                                <li>
+                                    Quiz - Secret 3: Content Is King, but Consistency Is Queen
+                                </li>
+                                <li>
+                                    <span class="number">4.</span> Secret 4: Punch Above Your Weight Class (11:00)
+                                </li>
+                                <li>
+                                    <span class="number">5.</span> Secret 5: Ethically Steal Your Competitors' Customers (8:12)
+                                </li>
+                                <li>
+                                    <span class="number">6.</span> Secret 6: Bulid an Audience By Borrowing (10:25)
+                                </li>
+                                <li>
+                                    Quiz - Secret 6: Bulid an Audience By Borrowing
+                                </li>
+                                <li>
+                                    <span class="number">7.</span> Secret 7: Be a Shadow, Not a Ghost (5:19)
+                                </li>
+                                <li>
+                                    <span class="number">8.</span> Bonus: Tips to Be a 5 Stars Freelancer (16:07)
+                                </li>
+                                <li>
+                                    <span class="number">9.</span> Closing Thoughts (3:15)
+                                </li>
+                                <li>
+                                    Quiz - Secret 7: Be a Shadow, Not a Ghost
+                                </li> -->
+                            </ul>
+                        </div>
+                        </div>
+                        <!-- <span class="chapter">Chapter 2</span>
+                        <h4>Final Quiz</h4>
+                        <div class="courses-list">
+                            <ul>
+                                <li>
+                                    Final Quiz
+                                </li>
+                            </ul>
+                        </div> -->
+                    </div>
+
                     <h3>Instructor</h3>
                     <div class="courses-author">
                         <div class="author-profile-header"></div>
@@ -208,6 +327,7 @@
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                         </div>
                     </div>
+                    
                     <div class="courses-review-comments">
                         <h3>3 Reviews</h3>
                         <div class="user-review">
@@ -392,73 +512,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="courses-sidebar-syllabus">
-                    <h3>Course Syllabus</h3>
-                    <div  *ngFor="let chapter of chapters">
-                    <span class="chapter">{{chapter.chapter}}</span>
-                    <h4>Lessons</h4>
-                    <div class="courses-list">
-                        <ul>
-                            <!-- <li>
-                                Introduction
-                            </li> -->
-                            <li>
-                                <a>
-                                    <span class="number">1.</span>{{chapter.contentDescription}}
-                                </a>
-                            </li>
-                            <!-- <li>
-                                Quiz - Secret 1: Sell The Problem, Not The Solution
-                            </li> -->
-                            <!-- <li>
-                                <span class="number">2.</span> Secret 2: Think Like a Magazine, Not a Salesman (4:30)
-                            </li> -->
-                            <!-- <li>
-                                Quiz - Secret 2: Think Like a Magazine, Not a Salesman
-                            </li>
-                            <li>
-                                <span class="number">3.</span> Secret 3: Content Is King, but Consistency Is Queen (3:56)
-                            </li>
-                            <li>
-                                Quiz - Secret 3: Content Is King, but Consistency Is Queen
-                            </li>
-                            <li>
-                                <span class="number">4.</span> Secret 4: Punch Above Your Weight Class (11:00)
-                            </li>
-                            <li>
-                                <span class="number">5.</span> Secret 5: Ethically Steal Your Competitors' Customers (8:12)
-                            </li>
-                            <li>
-                                <span class="number">6.</span> Secret 6: Bulid an Audience By Borrowing (10:25)
-                            </li>
-                            <li>
-                                Quiz - Secret 6: Bulid an Audience By Borrowing
-                            </li>
-                            <li>
-                                <span class="number">7.</span> Secret 7: Be a Shadow, Not a Ghost (5:19)
-                            </li>
-                            <li>
-                                <span class="number">8.</span> Bonus: Tips to Be a 5 Stars Freelancer (16:07)
-                            </li>
-                            <li>
-                                <span class="number">9.</span> Closing Thoughts (3:15)
-                            </li>
-                            <li>
-                                Quiz - Secret 7: Be a Shadow, Not a Ghost
-                            </li> -->
-                        </ul>
-                    </div>
-                    </div>
-                    <!-- <span class="chapter">Chapter 2</span>
-                    <h4>Final Quiz</h4>
-                    <div class="courses-list">
-                        <ul>
-                            <li>
-                                Final Quiz
-                            </li>
-                        </ul>
-                    </div> -->
-                </div>
+             
                 <div class="courses-purchase-info">
                     <h4>Interested in this course for your Business or Team?</h4>
                     <p>Train your employees in the most in-demand topics, with edX for Business.</p>

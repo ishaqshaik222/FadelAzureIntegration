@@ -2,6 +2,24 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
+import { AccordionGroup } from "ngx-accordion";
+
+export class tableData{
+  moduleName:any;
+  moduleId:any;
+   model:coursecontent[];
+}
+
+export class coursecontent{
+  chapter:any;
+  author:any
+  uploaded:any;
+  uploadedFileName:any;
+  videoUrl:any;
+  videoFileName:any;
+  moduleName:any;
+  moduleId:any;
+}
 
 @Component({
   selector: 'app-courses-details-page',
@@ -9,6 +27,10 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./courses-details-page.component.scss']
 })
 export class CoursesDetailsPageComponent implements OnInit {
+
+  ListData: Array<coursecontent>=[];
+    finaltabledata: Array<tableData>=[];
+
   ImageURL: any;
   courseName: any;
   description: string;
@@ -24,6 +46,7 @@ export class CoursesDetailsPageComponent implements OnInit {
   contentDescription: string;
   courseids: any=[];
   ImageUrl: string;
+  modules: any;
 
   constructor(
     private approute: ActivatedRoute,
@@ -36,15 +59,16 @@ export class CoursesDetailsPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    debugger
+    
     // var loginId = localStorage.getItem("LoginId");
     var id = this.approute.snapshot.params['id'];
     this.courseId=id
     this.Edit(id);
     this.getchapters(id);
+    this.GetModuleByCourseID(id);
   }
   Edit(id: any) {
-    debugger
+    
     var baseurl = this._authService.baseUrl;
     if (baseurl == "https://localhost:44358/") {
       baseurl = "https://localhost:44358"
@@ -120,9 +144,7 @@ export class CoursesDetailsPageComponent implements OnInit {
   }
 
   getchapters(id: any,) {
-    debugger
     this._authService.getchapters(id).subscribe((finalresult: any) => {
-      debugger
       // var finalresult = JSON.parse(finalresult);
       if (finalresult.status == "200") {
         console.log('chapters',finalresult.result)
@@ -136,6 +158,51 @@ export class CoursesDetailsPageComponent implements OnInit {
       }
     });
   }
+
+  GetModuleByCourseID(id: any,) {
+    
+    this._authService.GetModuleByCourseID(id).subscribe((finalresult: any) => {
+      debugger
+      // var finalresult = JSON.parse(finalresult);
+      if (finalresult.status == "200") {
+        this.modules=finalresult.result;
+        var modulesids = this.modules.map(item => item.moduleId)
+        .filter((value, index, self) => self.indexOf(value) === index);
+
+       
+      }
+
+      for(let i=0;i<modulesids.length;i++)
+            {
+              const tabledata=new tableData();
+
+              for(let j=0;j<this.modules.length;j++){
+                
+                const excel=new coursecontent();
+                  if(this.modules[j].moduleId==modulesids[i] ){
+                    excel.chapter=this.modules[j].chapter;
+                    excel.author=this.modules[j].author;
+                    excel.uploaded=this.modules[j].uploaded;
+                    excel.uploadedFileName=this.modules[j].uploadedFileName;
+                    excel.videoUrl=this.modules[j].videoUrl;
+                    excel.videoFileName=this.modules[j].videoFileName;
+                    excel.moduleName=this.modules[j].moduleName;
+                    excel.moduleId=this.modules[j].moduleId;
+                    this.ListData.push(excel);
+                  }
+
+              }
+              tabledata.moduleName=this.ListData[0].moduleName;
+              tabledata.moduleId=this.ListData[0].moduleId;
+              tabledata.model=this.ListData;
+
+              this.finaltabledata.push(tabledata)
+              this.ListData=[];
+            }
+
+    });
+  }
+  
   // Addcourse(){
   //   console.log (this.courseId)
   //   //routerLink="/cart/{{courseId}}"
