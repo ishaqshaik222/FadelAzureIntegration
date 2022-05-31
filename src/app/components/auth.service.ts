@@ -66,4 +66,9 @@ export class AuthService {
     
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetModuleByCourseID",{params: {ID}});
   }
+
+  GetQuestions(Id:any){
+    return this._httpClient.get(this.baseUrl + "api/UIMain/GetFaqsByCourseId", {params: {Id}});
+
+  }
 }

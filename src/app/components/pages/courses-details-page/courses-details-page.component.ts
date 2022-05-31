@@ -7,6 +7,9 @@ import { AccordionGroup } from "ngx-accordion";
 export class tableData{
   moduleName:any;
   moduleId:any;
+  OrderId:any;
+  ModuleShortDescription:any;
+  ChapterShortDescription:any;
    model:coursecontent[];
 }
 
@@ -19,6 +22,9 @@ export class coursecontent{
   videoFileName:any;
   moduleName:any;
   moduleId:any;
+  OrderId:any;
+  ModuleShortDescription:any;
+  ChapterShortDescription:any;
 }
 
 @Component({
@@ -30,6 +36,7 @@ export class CoursesDetailsPageComponent implements OnInit {
 
   ListData: Array<coursecontent>=[];
     finaltabledata: Array<tableData>=[];
+    OrderedData: Array<tableData>=[];
 
   ImageURL: any;
   courseName: any;
@@ -47,6 +54,7 @@ export class CoursesDetailsPageComponent implements OnInit {
   courseids: any=[];
   ImageUrl: string;
   modules: any;
+  questions: any;
 
   constructor(
     private approute: ActivatedRoute,
@@ -66,6 +74,7 @@ export class CoursesDetailsPageComponent implements OnInit {
     this.Edit(id);
     this.getchapters(id);
     this.GetModuleByCourseID(id);
+    this.GetFreqentlyAskedQuestion(id);
   }
   Edit(id: any) {
     
@@ -188,21 +197,52 @@ export class CoursesDetailsPageComponent implements OnInit {
                     excel.videoFileName=this.modules[j].videoFileName;
                     excel.moduleName=this.modules[j].moduleName;
                     excel.moduleId=this.modules[j].moduleId;
+                    excel.OrderId=this.modules[j].orderId;
+                    excel.ModuleShortDescription=this.modules[j].shortDescription.replace(/<[^>]*>/g, '');
+                    excel.ChapterShortDescription=this.modules[j].contentDescription.replace(/<[^>]*>/g, '')
                     this.ListData.push(excel);
                   }
 
               }
+              tabledata.ModuleShortDescription=this.ListData[0].ModuleShortDescription.replace(/<[^>]*>/g, '');
+              tabledata.ChapterShortDescription=this.ListData[0].ChapterShortDescription.replace(/<[^>]*>/g, '')
               tabledata.moduleName=this.ListData[0].moduleName;
               tabledata.moduleId=this.ListData[0].moduleId;
               tabledata.model=this.ListData;
-
+              tabledata.OrderId=this.ListData[0].OrderId;
               this.finaltabledata.push(tabledata)
               this.ListData=[];
+            }
+            var length=Math.max.apply(Math, this.finaltabledata.map(function(o) { return o.OrderId; }));
+
+            for(let i=0;i<length;i++){
+              for(let j=0;j<this.finaltabledata.length;j++){
+                if(this.finaltabledata[j].OrderId==(i+1)){
+                  this.OrderedData.push(this.finaltabledata[j]);
+                }
+              }
             }
 
     });
   }
   
+  GetFreqentlyAskedQuestion(id: any,) {
+    
+    this._authService.GetQuestions(id).subscribe((finalresult: any) => {
+      debugger
+      // var finalresult = JSON.parse(finalresult);
+      if (finalresult.status == "200") {
+        for(let i=0;i<finalresult.result.length;i++){
+          finalresult.result[i].answer=finalresult.result[i].answer.replace(/<[^>]*>/g, '')
+        }
+        
+        this.questions=finalresult.result;
+        
+
+       
+      }
+    });
+  }
   // Addcourse(){
   //   console.log (this.courseId)
   //   //routerLink="/cart/{{courseId}}"
