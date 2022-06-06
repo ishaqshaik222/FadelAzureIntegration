@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 import { AccordionGroup } from "ngx-accordion";
@@ -33,7 +33,7 @@ export class coursecontent{
   styleUrls: ['./courses-details-page.component.scss']
 })
 export class CoursesDetailsPageComponent implements OnInit {
-
+  @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
   ListData: Array<coursecontent>=[];
     finaltabledata: Array<tableData>=[];
     OrderedData: Array<tableData>=[];
@@ -55,6 +55,10 @@ export class CoursesDetailsPageComponent implements OnInit {
   ImageUrl: string;
   modules: any;
   questions: any;
+  ImageCaption: any;
+  ImageTitle: any;
+  ImageShortDescription: any;
+  videoSource:any=[];
 
   constructor(
     private approute: ActivatedRoute,
@@ -63,7 +67,7 @@ export class CoursesDetailsPageComponent implements OnInit {
     private _router: Router,
 
   ) {
-    // debugger
+    debugger
    }
 
   ngOnInit(): void {
@@ -76,6 +80,11 @@ export class CoursesDetailsPageComponent implements OnInit {
     this.GetModuleByCourseID(id);
     this.GetFreqentlyAskedQuestion(id);
   }
+
+  toggleVideo() {
+    this.videoplayer.nativeElement.play();
+  }
+
   Edit(id: any) {
     
     var baseurl = this._authService.baseUrl;
@@ -104,7 +113,9 @@ export class CoursesDetailsPageComponent implements OnInit {
         // this.updatedDate=finalresult.result.updatedDate;
         this.ImageUrl=baseurl+finalresult.result.imageURL
         this.updatedDate=this.datepipe.transform(finalresult.result.updatedDate, 'dd-MM-yyyy')
-        
+        this.ImageCaption=finalresult.result.imageCaption
+        this.ImageTitle=finalresult.result.imageTitle
+        this.ImageShortDescription=finalresult.result.imageShortDescription==null?null:finalresult.result.imageShortDescription.replace(/<[^>]*>/g, '')
         this.price=finalresult.result.price;
         this.offerprice=finalresult.result.offerPrice
         if(this.offerprice!=0){
@@ -114,11 +125,14 @@ export class CoursesDetailsPageComponent implements OnInit {
         if (finalresult.result.imageURL != null) {
           this.ImageURL = baseurl + finalresult.result.imageURL;
           // this.noimage=true;;
-
         }
         else {
-          // this.ImageURL = baseurl + "/courseFiles/dummy identityproof.png";
+          this.ImageURL = "assets/img/default/Image-1.jpg";
 
+        }
+        if (finalresult.result.videoUrl != null) {
+          this.videoSource.push(baseurl + finalresult.result.videoUrl);
+          // this.noimage=true;;
         }
       }
       else {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 
 export class tableData{
@@ -30,6 +30,8 @@ export class HeaderStyleTwoComponent implements OnInit {
 
     constructor(private route: ActivatedRoute,
         private _authService: AuthService,
+        private _router: Router,
+
         ) { }
 
     ngOnInit(): void {
@@ -45,6 +47,11 @@ export class HeaderStyleTwoComponent implements OnInit {
         }
 
         this.GetTechnologies();
+    }
+
+    OnClick(id:any){
+        debugger
+        this._router.navigate(['/single-courses/'+id]);
     }
 
     classApplied = false;

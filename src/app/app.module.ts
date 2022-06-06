@@ -191,6 +191,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { AccordionModule } from "ngx-accordion";
 import { AccordionGroup } from 'ngx-accordion';
+import { RouterModule } from '@angular/router';
 
 
 /**
@@ -387,6 +388,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CarouselModule,

@@ -1,5 +1,29 @@
 @import "../header-style-one/header-style-one.component.scss";
 
-// .navbar-area{
-//     margin-top: 0px;
-// }
+.navbar-area{
+    margin-top: 0px;
+}
+
+.top-header-btn {
+    text-align: end;
+
+    .default-btn {
+        background-color: var(--bluecolor);
+        color: var(--mainColor);
+        border-color: var(--whiteColor);
+        
+        .icon-arrow {
+            color: var(--mainColor);
+            transition: var(--transition);
+        }
+        &:hover, &:focus {
+            background-color: var(--blackColor);
+            color: var(--whiteColor);
+            border-color: var(--blackColor);
+        
+            .icon-arrow {
+                color: var(--whiteColor);
+            }
+        }
+    }
+}

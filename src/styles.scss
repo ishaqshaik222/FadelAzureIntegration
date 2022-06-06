@@ -2140,8 +2140,9 @@ textarea.form-control {
         size: cover;
         repeat: no-repeat;
     };
+    
     padding: {
-        top: 330px;
+        top: 200px;
         bottom: 120px;
     };
     &.page-title-style-two {
@@ -2180,7 +2181,8 @@ textarea.form-control {
 .page-title-content {
     ul {
         padding-left: 0;
-        margin-bottom: 12px;
+        margin-bottom: 20px;
+        margin-left: 20px;
         list-style-type: none;
 
         li {
@@ -2193,7 +2195,7 @@ textarea.form-control {
                 display: inline-block;
                 color: var(--whiteColor);
                 opacity: .85;
-
+                
                 &:hover, &:focus {
                     color: var(--mainColor);
                     opacity: 1;
@@ -2218,6 +2220,7 @@ textarea.form-control {
                 margin-right: 0;
 
                 &::before {
+                    margin-top: 0px ;
                     display: none;
                 }
             }
@@ -2226,6 +2229,7 @@ textarea.form-control {
     h2 {
         color: var(--whiteColor);
         margin-bottom: 0;
+        margin-left: 20px;
         font: {
             size: 42px;
             weight: 700;
