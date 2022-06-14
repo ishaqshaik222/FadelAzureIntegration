@@ -189,7 +189,8 @@
                     </div>
                     <div class="d-inline-block">
                         <div class="top-header-btn">
-                            <a *ngIf="!loggedIn" href="https://fadelStudentsPortal.b2clogin.com/fadelStudentsPortal.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_studentPortalSignUpAndSignIn&client_id=ca12fdfb-881f-4dd7-8853-a4016b4006be&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fugetitmain.fadelsoft.com%2F&scope=openid&response_type=id_token&prompt=login" class="default-btn"><i class='bx bx-log-in icon-arrow before'></i><span class="label">Log In</span><i class="bx bx-log-in icon-arrow after"></i></a>
+                            <a *ngIf="!loggedIn" href="https://fadelStudentsPortal.b2clogin.com/fadelStudentsPortal.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_studentPortalSignUpAndSignIn&client_id=ca12fdfb-881f-4dd7-8853-a4016b4006be&nonce=defaultNonce&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2F&scope=openid&response_type=id_token&prompt=login" class="default-btn"><i class='bx bx-log-in icon-arrow before'></i><span class="label">Log In</span><i class="bx bx-log-in icon-arrow after"></i></a>
+                            <!-- <a *ngIf="!loggedIn" href="https://fadelStudentsPortal.b2clogin.com/fadelStudentsPortal.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_studentPortalSignUpAndSignIn&client_id=ca12fdfb-881f-4dd7-8853-a4016b4006be&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fugetitmain.fadelsoft.com%2F&scope=openid&response_type=id_token&prompt=login" class="default-btn"><i class='bx bx-log-in icon-arrow before'></i><span class="label">Log In</span><i class="bx bx-log-in icon-arrow after"></i></a> -->
                             <a *ngIf="loggedIn" (click)="logOut()" class="default-btn" style="cursor: pointer;">Sign Out</a>
                             <!-- <button *ngIf="!loggedIn" type="submit">Subscribe</button> -->
                         </div>

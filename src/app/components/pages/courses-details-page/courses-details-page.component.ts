@@ -81,6 +81,8 @@ export class CoursesDetailsPageComponent implements OnInit {
     this.GetFreqentlyAskedQuestion(id);
   }
 
+     
+
   toggleVideo() {
     this.videoplayer.nativeElement.play();
   }
@@ -123,7 +125,7 @@ export class CoursesDetailsPageComponent implements OnInit {
         }
 
         if (finalresult.result.imageURL != null) {
-          this.ImageURL = baseurl + finalresult.result.imageURL;
+          this.ImageURL = finalresult.result.imageURL;
           // this.noimage=true;;
         }
         else {
@@ -131,7 +133,7 @@ export class CoursesDetailsPageComponent implements OnInit {
 
         }
         if (finalresult.result.videoUrl != null) {
-          this.videoSource.push(baseurl + finalresult.result.videoUrl);
+          this.videoSource.push( finalresult.result.videoUrl);
           // this.noimage=true;;
         }
       }

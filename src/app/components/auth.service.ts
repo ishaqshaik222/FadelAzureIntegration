@@ -71,4 +71,9 @@ export class AuthService {
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetFaqsByCourseId", {params: {Id}});
 
   }
+
+  public GetSubscribedCoursesByCustomerId(id) {
+    //debugger
+    return this._httpClient.get(this.baseUrl + "api/UIMain/GetSubscribedCoursesByCustomerId", {params: {id}});
+  }
 }
