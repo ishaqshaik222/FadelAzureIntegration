@@ -27,7 +27,12 @@ export class BlogRightSidebarPageComponent implements OnInit {
       this.data=finalresult.result;
     });
   }
-
+  GoToPage(id:any){
+    debugger
+    // localStorage.setItem('courseidfornavigate',id);
+    window.location.href='http://localhost:4200/app/vien/start/'+id
+    // this._router.navigateByUrl(this._authService.baseUrl+'app/vien/start',);
+  }
   OnClick(id:any){
     debugger
     this._router.navigate(['/single-courses/'+id]);

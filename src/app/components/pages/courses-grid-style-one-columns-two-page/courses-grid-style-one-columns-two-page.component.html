@@ -7,7 +7,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li>Courses</li>
             </ul>
-            <h2>Courses 2 Columns</h2>
+            <!-- <h2>Courses 2 Columns</h2> -->
         </div>
     </div>
 </div>
@@ -24,8 +24,12 @@
                 <div class="col-lg-8 col-md-8">
                     <div class="topbar-ordering-and-search">
                         <div class="row align-items-center">
-                            <div class="col-lg-3 col-md-5 offset-lg-4 offset-md-1 col-sm-6">
-                                <div class="topbar-ordering">
+                            <div class="col-lg-5 col-md-6 col-sm-6">
+                                <div class="product-add-to-cart">
+                            
+                                    <button type="submit" class="default-btn"><i class='bx bx-plus icon-arrow before'></i><span class="label">Add to Cart</span><i class="bx bx-plus icon-arrow after"></i></button>
+                                </div>
+                                <!-- <div class="topbar-ordering">
                                     <select class="form-select">
                                         <option>Sort by popularity</option>
                                         <option>Sort by latest</option>
@@ -33,13 +37,15 @@
                                         <option>Sort by rating</option>
                                         <option>Sort by new</option>
                                     </select>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-lg-5 col-md-6 col-sm-6">
                                 <div class="topbar-search">
                                     <form>
-                                        <label><i class="bx bx-search"></i></label>
-                                        <input type="text" class="input-search" placeholder="Search here...">
+                                        <!-- <label><i class="bx bx-search"></i></label> -->
+                                        <a  class="default-btn" (click)="BuyNow(PlanId)"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Buy Plan</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
+
+                                        <!-- <input type="text" class="input-search" placeholder="Search here..."> -->
                                     </form>
                                 </div>
                             </div>
@@ -49,20 +55,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-6 col-md-6" *ngFor="let item of courses">
                 <div class="single-courses-box mb-30">
                     <div class="courses-image">
-                        <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses1.jpg" alt="image"></a>
+                        <a routerLink="/single-courses/{{item.courseId}}" class="d-block"><img src={{item.imageURL}} alt="image"></a>
                         <div class="courses-tag">
-                            <a routerLink="/courses-2-columns-style-1" class="d-block">Business</a>
+                            <a routerLink="/courses-2-columns-style-1" class="d-block">Learning</a>
                         </div>
                     </div>
                     <div class="courses-content">
                         <div class="course-author d-flex align-items-center">
-                            <img src="assets/img/user1.jpg" class="rounded-circle mr-2" alt="image">
+                            <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
                             <span>Steven Smith</span>
                         </div>
-                        <h3><a routerLink="/single-courses" class="d-inline-block">Raque Professional IT Expert Certificate Course</a></h3>
+                        <h3><a routerLink="/single-courses" class="d-inline-block">{{item.imageCaption}}</a></h3>
                         <div class="courses-rating">
                             <div class="review-stars-rated">
                                 <i class='bx bxs-star'></i>
@@ -76,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="courses-box-footer">
+                    <!-- <div class="courses-box-footer">
                         <ul>
                             <li class="students-number">
                                 <i class='bx bx-user'></i> 10 students
@@ -88,10 +94,10 @@
                                 Free
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
+            <!-- <div class="col-lg-6 col-md-6">
                 <div class="single-courses-box mb-30">
                     <div class="courses-image">
                         <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses2.jpg" alt="image"></a>
@@ -311,7 +317,7 @@
                     <a routerLink="/courses-2-columns-style-1" class="page-numbers">5</a>
                     <a routerLink="/courses-2-columns-style-1" class="next page-numbers"><i class='bx bx-chevron-right'></i></a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

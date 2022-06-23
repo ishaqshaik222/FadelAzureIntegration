@@ -82,17 +82,17 @@ export class HometwoCoursesComponent implements OnInit {
             this.courses[i].price = this.courses[i].price;
 
           }
-          this.courses[i].ImageURL = baseurl + finalresult.result[i].imageURL;
-          if (finalresult.result[i].imageURL != null) {
-            this.courses[i].ImageURL = baseurl + finalresult.result[i].imageURL;
+          // this.courses[i].ImageURL = baseurl + finalresult.result[i].imageURL;
+          // if (finalresult.result[i].imageURL != null) {
+          //   this.courses[i].ImageURL = baseurl + finalresult.result[i].imageURL;
 
-            // this.noimage=true;;
+          //   // this.noimage=true;;
 
-          }
-          else {
-            // this.ImageURL = baseurl + "/courseFiles/dummy identityproof.png";
+          // }
+          // else {
+          //   // this.ImageURL = baseurl + "/courseFiles/dummy identityproof.png";
 
-          }
+          // }
 
         }
         // if (finalresult.result.imageURL != null) {

@@ -52,6 +52,10 @@ export class HeaderStyleTwoComponent implements OnInit {
     OnClick(id:any){
         debugger
         this._router.navigate(['/single-courses/'+id]);
+        setTimeout(() => {
+            window.location.reload();
+
+        }, 1000);
     }
 
     classApplied = false;

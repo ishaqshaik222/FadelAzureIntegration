@@ -11,14 +11,14 @@
                     <div class="col-lg-4 col-md-6" *ngFor="let item of courses" routerLink="/single-courses/{{item.courseId}}" >
                         <div class="single-courses-box mb-30" >
                             <div class="courses-image">
-                                <a routerLink="/single-courses/{{item.courseId}}" class="d-block"><img src={{item.ImageURL}} alt="image"></a>
+                                <a routerLink="/single-courses/{{item.courseId}}" class="d-block"><img src={{item.imageURL}} alt="image"></a>
                                 <div class="courses-tag">
                                     <a routerLink="/" class="d-block">{{item.technologyName}}</a>
                                 </div>
                             </div>
                             <div class="courses-content">
                                 <div class="course-author d-flex align-items-center">
-                                    <img src="assets/img/user1.jpg" class="rounded-circle mr-2" alt="image">
+                                    <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
                                     <span>Steven Smith</span>
                                 </div>
                                 <h3><a routerLink="/single-courses" class="d-inline-block">{{item.courseName}}</a></h3>

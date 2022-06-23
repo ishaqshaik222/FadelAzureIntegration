@@ -1,16 +1,26 @@
 <div class="courses-categories-slides">
-    <owl-carousel-o [options]="categoriesSlides">
-        <ng-template carouselSlide>
-            <div class="single-categories-courses-box mb-30">
+    <owl-carousel-o [options]="categoriesSlides" >
+        <ng-template carouselSlide *ngFor="let item of finaltabledata">
+            <div class="single-categories-courses-box mb-30" (click)="GoToPage(item.planId)">
+                
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-md-6 mt-0 float-left">
+                        <a routerLink="/">Management</a>
+                    </div> 
+                    
+                </div>-->
                 <div class="icon">
                     <i class='bx bx-code-alt'></i>
                 </div>
-                <h3>Web Development</h3>
-                <span>60 Courses</span>
+
+                <h3>{{item.planName}}</h3>
+                <span>{{item.length}} Courses</span>
                 <a routerLink="/" class="link-btn"></a>
+                
             </div>
+            
         </ng-template>
-        <ng-template carouselSlide>
+        <!-- <ng-template carouselSlide>
             <div class="single-categories-courses-box mb-30">
                 <div class="icon">
                     <i class='bx bx-camera'></i>
@@ -59,6 +69,6 @@
                 <span>49 Courses</span>
                 <a routerLink="/" class="link-btn"></a>
             </div>
-        </ng-template>
+        </ng-template> -->
     </owl-carousel-o>
 </div>

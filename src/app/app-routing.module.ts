@@ -99,7 +99,7 @@ const routes: Routes = [
     {path: 'courses-category-style-2', component: CategoryPageTwoComponent},
     {path: 'courses-category-style-3', component: CategoryPageThreeComponent},
     {path: 'courses-list', component: CoursesListPageComponent},
-    {path: 'courses-2-columns-style-1', component: CoursesGridStyleOneColumnsTwoPageComponent},
+    {path: 'courses-2-columns-style-1/:planid', component: CoursesGridStyleOneColumnsTwoPageComponent},
     {path: 'courses-3-columns-style-1', component: CoursesGridStyleOneColumnsThreePageComponent},
     {path: 'courses-4-columns-style-1', component: CoursesGridStyleOneColumnsFourPageComponent},
     {path: 'courses-2-columns-style-2', component: CoursesGridStyleTwoColumnsTwoPageComponent},

@@ -22,7 +22,8 @@
                     <div class="col-lg-6 col-md-6" *ngFor="let item of data">
                         <div class="single-blog-post mb-30">
                             <div class="post-image">
-                                <a routerLink="/single-blog" class="d-block">
+                                <!-- <a routerLink="/single-blog" class="d-block"> -->
+                                    <a (click)="GoToPage(item.courseId)" class="d-block">
                                     <img src={{item.imageURL}}   alt="image">
                                     <!-- <img src="assets/img/default/Image-1.jpg" alt="image"> -->
 

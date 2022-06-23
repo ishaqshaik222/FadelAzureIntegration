@@ -1,5 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { AuthService } from '../../auth.service';
+
+export class FinalData{
+	planId:any
+	planName:any
+	length:any
+	model:plans[];
+}
+
+
+export class plans{
+	planid:any
+	planname:any
+	CourseId:any
+} 
+
 
 @Component({
   selector: 'app-categories-style-one',
@@ -7,11 +24,54 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./categories-style-one.component.scss']
 })
 export class CategoriesStyleOneComponent implements OnInit {
+	plans: any;
+	ListData: Array<plans>=[];
+	finaltabledata: Array<FinalData>=[];
+    constructor(private _authService: AuthService,   
+		 private _router: Router,
 
-    constructor() { }
+		) { }
 
     ngOnInit(): void {
+		this._authService.GetCoursePlans().subscribe((finalresult: any) => {
+			debugger
+			this.plans=finalresult.result;
+			var ids = this.plans.map(item => item.planId)
+        	.filter((value, index, self) => self.indexOf(value) === index);
+			
+			for(let i=0;i<ids.length;i++)
+            {
+              const tabledata=new FinalData();
+
+              for(let j=0;j<this.plans.length;j++){
+                
+                const excel=new plans();
+                  if(this.plans[j].planId==ids[i] ){
+					  excel.planid=this.plans[j].planId;
+					  excel.planname=this.plans[j].planName
+                    excel.CourseId=this.plans[j].courseId;
+                    this.ListData.push(excel);
+                  }
+
+              }
+			  tabledata.planId=this.ListData[0].planid;
+              tabledata.planName=this.ListData[0].planname;
+              tabledata.model=this.ListData;
+			  tabledata.length=this.ListData.length
+              this.finaltabledata.push(tabledata)
+              this.ListData=[];
+            }
+
+			
+			debugger
+		  })
     }
+
+
+	GoToPage(id:any){
+		debugger
+		this._router.navigate(['/courses-2-columns-style-1/',id]);
+	}
 
     categoriesSlides: OwlOptions = {
 		loop: true,
