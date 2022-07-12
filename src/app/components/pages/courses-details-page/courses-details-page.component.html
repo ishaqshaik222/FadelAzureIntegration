@@ -45,7 +45,7 @@
     <div class="container">
         <div class="courses-details-header">
             <div class="row align-items-center">
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <div class="courses-title">
                         <h2 >{{courseName}}</h2>
                         <p>{{description}}.</p>
@@ -70,9 +70,10 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-5">
                     <div class="courses-price">
                         <div class="courses-review">
+
                             <div class="review-stars">
                                 <i class='bx bxs-star'></i>
                                 <i class='bx bxs-star'></i>
@@ -80,11 +81,14 @@
                                 <i class='bx bxs-star'></i>
                                 <i class='bx bxs-star'></i>
                             </div>
+                        
                             <span class="reviews-total d-inline-block">(2 reviews)</span>
+                            <button type="submit"  class="default-btn"  (click)="AddToCart(courseId)"><i class='bx bx-cart icon-arrow before'></i><span class="label">Add To Cart</span><i class="bx bx-cart icon-arrow after"></i></button>
+
                         </div>
                         <div class="price">₹{{price}}</div>
                         <!-- <a routerLink="/cart/{{courseId}}" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Buy Course</span><i class="bx bx-paper-plane icon-arrow after"></i></a> -->
-                        <a  class="default-btn" (click)="BuyNow(courseId)"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Buy Course</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
+                        <button type="submit"  class="default-btn" (click)="BuyNow(courseId)"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Buy Course</span><i class="bx bx-paper-plane icon-arrow after"></i></button>
 
                     </div>
                 </div>
@@ -284,7 +288,7 @@
                         <div class="faq-accordion faq-accordion-style-two">
                             <h3>Frequently Asked Questions</h3>
                             <accordion>
-                                <accordion-group *ngFor="let item of questions" heading={{item.question}}>
+                                <accordion-group *ngFor="let item of finalquestions" heading={{item.question}}>
                                     <!-- <p>Associate: a two-year program that either leads to a specific vocation or transitions to a bachelor program. Bachelor: a four or five-year program where students earn credits in a wide variety of courses.</p> -->
                                     <ul><P>{{item.answer}}.</P>
                                     </ul>

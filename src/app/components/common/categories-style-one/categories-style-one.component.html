@@ -1,14 +1,51 @@
 <div class="courses-categories-slides">
     <owl-carousel-o [options]="categoriesSlides" >
         <ng-template carouselSlide *ngFor="let item of finaltabledata">
+
+            <div >
+                <div   (click)="GoToPage(item.planId)" >
+                    <div class="single-courses-box mb-30" >
+                        <div class="courses-image">
+                            <a (click)="GoToPage(item.planId)" class="d-block"><img src="https://ugetit.blob.core.windows.net/courseimages/1997d693-1f4d-404b-a3fc-19a5fade0397-Image-2.jpg" alt="image"></a>
+                            <div class="courses-tag">
+                                <a  class="d-block">{{item.length}}-Courses</a>
+                            </div>
+                        </div>
+                        <div class="courses-content">
+                        
+                            <h3><a routerLink="/single-courses" class="d-inline-block">{{item.planName}}</a></h3>
+                           
+                        </div>
+                        <div class="courses-box-footer">
+                            <ul>
+                                <li class="students-number" (click)="AddToCart(item.planId)">
+                                    <i class='bx bx-plus icon-arrow before'></i>Add To Cart
+                                </li>
+                                <!-- <li class="courses-lesson">
+                                    <i class='bx bx-book-open'></i> {{item.length}} lessons
+                                </li> -->
+                                <li class="courses-price">
+                                    ₹{{item.Price}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+
+
+
+            <!-- <div>
+                <a  class="default-btn" (click)="AddToCart(courseId)"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Add To Cart</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
+            </div>
             <div class="single-categories-courses-box mb-30" (click)="GoToPage(item.planId)">
                 
-                <!-- <div class="row"> -->
-                    <!-- <div class="col-md-6 mt-0 float-left">
+                <div class="row">
+                    <div class="col-md-6 mt-0 float-left">
                         <a routerLink="/">Management</a>
                     </div> 
                     
-                </div>-->
+                </div>
                 <div class="icon">
                     <i class='bx bx-code-alt'></i>
                 </div>
@@ -17,7 +54,7 @@
                 <span>{{item.length}} Courses</span>
                 <a routerLink="/" class="link-btn"></a>
                 
-            </div>
+            </div> -->
             
         </ng-template>
         <!-- <ng-template carouselSlide>

@@ -7,6 +7,7 @@ export class FinalData{
 	planId:any
 	planName:any
 	length:any
+	Price:any
 	model:plans[];
 }
 
@@ -15,6 +16,7 @@ export class plans{
 	planid:any
 	planname:any
 	CourseId:any
+	Price:any
 } 
 
 
@@ -50,6 +52,7 @@ export class CategoriesStyleOneComponent implements OnInit {
 					  excel.planid=this.plans[j].planId;
 					  excel.planname=this.plans[j].planName
                     excel.CourseId=this.plans[j].courseId;
+					excel.Price=this.plans[j].price
                     this.ListData.push(excel);
                   }
 
@@ -58,6 +61,7 @@ export class CategoriesStyleOneComponent implements OnInit {
               tabledata.planName=this.ListData[0].planname;
               tabledata.model=this.ListData;
 			  tabledata.length=this.ListData.length
+			  tabledata.Price=this.ListData[0].Price
               this.finaltabledata.push(tabledata)
               this.ListData=[];
             }
@@ -66,6 +70,32 @@ export class CategoriesStyleOneComponent implements OnInit {
 			debugger
 		  })
     }
+
+	AddToCart(id:any){
+		debugger
+		// localStorage.setItem('cartplanid',id);
+		var data={
+		  UserId:1,
+		  ProductId:parseInt(id),
+		  CreatedBy:1,
+		  Type:'CoursePlan'
+		}
+		this._authService.AddCartItem(data).subscribe((finalresult: any) => {
+		  debugger
+		  var finalresult=JSON.parse(finalresult)
+		  if(finalresult.status=="200"){
+			window.location.reload();
+			// this._router.navigate(['/cart']);
+		  }
+		  else if(finalresult.status=="104"){
+			// this._router.navigate(['/cart']);
+		  }
+		  else{
+			
+		  }
+		})
+	  
+	  }
 
 
 	GoToPage(id:any){

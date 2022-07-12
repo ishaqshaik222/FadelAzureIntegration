@@ -29,12 +29,13 @@
                     <tbody>
                         <tr *ngFor="let item of carttable">
                             <td class="product-thumbnail">
-                                <a routerLink="/single-products/{{item.courseId}}">
+                                <!-- <a (click)="GoToPage(item.courseId,item.isPlan)"  routerLink="/single-products/{{item.courseId}}/Course"> -->
+                                 <a (click)="GoToPage(item.courseId,item.IsPlan)" >
                                     <img src="{{item.imageURL}}" alt="item">
                                 </a>
                             </td>
                             <td class="product-name">
-                                <a routerLink="/single-products">{{item.coursename}}</a>
+                                <a (click)="GoToPage(item.courseId,item.IsPlan)">{{item.coursename}}</a>
                             </td>
                             <td class="product-price">
                                 <span class="unit-amount">₹{{item.price}}</span>
@@ -149,7 +150,7 @@
                     <!-- <li>Shipping <span>₹30.00</span></li> -->
                     <li>Total <span>{{Total}}</span></li>
                 </ul>
-                <a routerLink="/checkout" class="default-btn"><i class='bx bx-shopping-bag icon-arrow before'></i><span class="label">Proceed to Checkout</span><i class="bx bx-shopping-bag icon-arrow after"></i></a>
+                <a routerLink="/checkout/1/cartitems/cart" class="default-btn"><i class='bx bx-shopping-bag icon-arrow before'></i><span class="label">Proceed to Checkout</span><i class="bx bx-shopping-bag icon-arrow after"></i></a>
             </div>
         </form>
     </div>

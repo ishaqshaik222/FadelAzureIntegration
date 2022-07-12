@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 
 export class CartItems{
@@ -11,6 +11,7 @@ coursename:any
 price:any
 Tax:any
 TotalPrice:any
+IsPlan:any
 }
 
 @Component({
@@ -43,7 +44,9 @@ export class CartPageComponent implements OnInit {
   constructor(
     private approute: ActivatedRoute,
     private _authService: AuthService,
-    private datepipe: DatePipe
+    private datepipe: DatePipe,
+    private _router:Router,
+
   ) { 
     
   }
@@ -178,6 +181,7 @@ export class CartPageComponent implements OnInit {
         obj.cartId=this.courses[i].cartId,
         obj.courseId=this.courses[i].courseId,
         obj.coursename=this.courses[i].courseName,
+        obj.IsPlan=this.courses[i].isPlan
         // obj.imageURL=this.courses[i].imageURL,
         obj.price=this.courses[i].price
         if(this.courses[i].offerPrice!=0){
@@ -201,15 +205,34 @@ export class CartPageComponent implements OnInit {
     });
 
   }
-  Delete(id:any){
-    debugger;
-    this._authService.DeleteCartItem(id).subscribe((finalresult: any) => {
-      debugger
-      if(finalresult.status="200"){
-        
-        window.location.reload()
-      }
-    })
+
+  GoToPage(id,isplan){
+    debugger
+    if(isplan==true){
+      this._router.navigate(['/courses-2-columns-style-1/',id]);
+    }
+    if(isplan==false){
+      this._router.navigate(['/single-courses/',id]);
+    }
+    // this._router.navigate[('/single-products/{{item.courseId}}/Course')]
   }
+
+    Delete(id:any){
+              debugger;
+
+                var data={
+                  CartId:parseInt(id),
+                }
+      
+              this._authService.DeleteCartItem(data).subscribe((finalresult: any) => {
+                debugger
+                if(finalresult.status="200"){
+                  
+                  window.location.reload()
+                }
+                
+              })
+          
+    }
 
 }

@@ -37,16 +37,18 @@ BuyNow(id:any){
   var data={
     UserId:1,
     ProductId:parseInt(id),
-    CreatedBy:1
+    CreatedBy:1,
+    Type:'CoursePlan'
+
   }
   this._authService.AddCartItem(data).subscribe((finalresult: any) => {
     debugger
     var finalresult=JSON.parse(finalresult)
     if(finalresult.status=="200"){
-      this._router.navigate(['/cart']);
+      this._router.navigate(['/checkout/'+id+'/ProductItem/Plan']);
     }
     else if(finalresult.status=="104"){
-      this._router.navigate(['/cart']);
+      this._router.navigate(['/checkout/'+id+'/ProductItem/Plan']);
     }
     else{
       

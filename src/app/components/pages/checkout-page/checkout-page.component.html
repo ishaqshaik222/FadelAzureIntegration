@@ -139,7 +139,7 @@
                                             <span>Cart Subtotal</span>
                                         </td>
                                         <td class="order-subtotal-price">
-                                            <span class="order-subtotal-amount">{{this.Total}}</span>
+                                            <span class="order-subtotal-amount">{{Total}}</span>
                                         </td>
                                     </tr>
                                     <!-- <tr>
@@ -155,7 +155,7 @@
                                             <span>Order Total</span>
                                         </td>
                                         <td class="product-subtotal">
-                                            <span class="subtotal-amount">{{this.Total}}</span>
+                                            <span class="subtotal-amount">{{Total}}</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -170,7 +170,7 @@
                                     <!-- Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account. -->
                                 </p>
                                 <p>
-                                    <a (click)="PayNow()" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Pay Now</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
+                                    <button (click)="PayNow()" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Pay Now</span><i class="bx bx-paper-plane icon-arrow after"></i></button>
                                     <!-- <input type="radio" id="paypal" name="radio-group">
                                     <label for="paypal">PayPal</label> -->
                                 </p>

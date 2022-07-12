@@ -122,10 +122,10 @@ const routes: Routes = [
     {path: 'single-blog', component: BlogDetailsPageComponent},
     {path: 'shop-grid', component: ShopGridPageComponent},
     {path: 'shop-grid-fullwidth', component: ShopFullWidthPageComponent},
-    {path: 'single-products/:id', component: ProductsDetailsPageComponent},
+    {path: 'single-products/:id/:value', component: ProductsDetailsPageComponent},
     // {path: 'cart/:id', component: CartPageComponent},
     {path: 'cart', component: CartPageComponent},
-    {path: 'checkout', component: CheckoutPageComponent},
+    {path: 'checkout/:id/:value/:type', component: CheckoutPageComponent},
     {path: 'contact', component: ContactPageComponent},
     // Here add new pages component
     
@@ -133,7 +133,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+    // imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+       imports: [RouterModule.forRoot(routes, {useHash:true})],
+
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

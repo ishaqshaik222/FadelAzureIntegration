@@ -9,7 +9,8 @@ export class AuthService {
   baseUrl: any
 
   constructor(private _httpClient: HttpClient) {
-    this.baseUrl = 'https://localhost:44358/';
+      this.baseUrl = 'https://localhost:44358/';
+
      //this.baseUrl = 'http://testugetitapi.fadelsoft.com/';
    }
    public SendMsg(data) {
@@ -47,9 +48,9 @@ export class AuthService {
   return this._httpClient.get(this.baseUrl + "api/UIMain/GetCartItemsByUserId",{params: {id}});
   }
 
-  public DeleteCartItem(id:any){
+  public DeleteCartItem(data:any){
     debugger
-    return this._httpClient.delete(this.baseUrl + "api/UIMain/DeleteCartItem?id=" + id);
+    return this._httpClient.post(this.baseUrl + "api/UIMain/DeleteCartItem" , data);
 
   }
 
@@ -82,8 +83,18 @@ export class AuthService {
 
   }
 
+  GetAllCoursePlans(){
+    return this._httpClient.get(this.baseUrl + "api/UIMain/GetAllCoursePlans");
+
+  }
+
   GetCoursesPlanId(id:any):Observable<any>{
     return this._httpClient.get(this.baseUrl + "api/UIMain/GetCoursesPlanId?Id="+id);
+
+  }
+
+  GetCoursePlanById(id:any):Observable<any>{
+    return this._httpClient.get(this.baseUrl + "api/UIMain/GetCoursePlanById?Id="+id);
 
   }
 }

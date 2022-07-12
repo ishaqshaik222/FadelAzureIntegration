@@ -27,7 +27,7 @@
                             <div class="col-lg-5 col-md-6 col-sm-6">
                                 <div class="product-add-to-cart">
                             
-                                    <button type="submit" class="default-btn"><i class='bx bx-plus icon-arrow before'></i><span class="label">Add to Cart</span><i class="bx bx-plus icon-arrow after"></i></button>
+                                    <button type="submit" (click)="AddToCart(PlanId)" class="default-btn"><i class='bx bx-plus icon-arrow before'></i><span class="label">Add to Cart</span><i class="bx bx-plus icon-arrow after"></i></button>
                                 </div>
                                 <!-- <div class="topbar-ordering">
                                     <select class="form-select">
@@ -68,7 +68,7 @@
                             <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
                             <span>Steven Smith</span>
                         </div>
-                        <h3><a routerLink="/single-courses" class="d-inline-block">{{item.imageCaption}}</a></h3>
+                        <h3><a routerLink="/single-courses" class="d-inline-block">{{item.courseName}}</a></h3>
                         <div class="courses-rating">
                             <div class="review-stars-rated">
                                 <i class='bx bxs-star'></i>
@@ -82,19 +82,19 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="courses-box-footer">
+                    <div class="courses-box-footer">
                         <ul>
                             <li class="students-number">
                                 <i class='bx bx-user'></i> 10 students
                             </li>
                             <li class="courses-lesson">
-                                <i class='bx bx-book-open'></i> 6 lessons
+                                <i class='bx bx-book-open'></i> {{item.count}} lesson
                             </li>
                             <li class="courses-price">
-                                Free
+                                ₹{{item.price}}
                             </li>
                         </ul>
-                    </div> -->
+                    </div>
                 </div>
             </div>
             <!-- <div class="col-lg-6 col-md-6">

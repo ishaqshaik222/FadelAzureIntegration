@@ -7,7 +7,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li>Courses</li>
             </ul>
-            <h2>Courses 3 Columns</h2>
+            <h2>Courses </h2>
         </div>
     </div>
 </div>
@@ -49,20 +49,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" *ngFor="let item of courses" routerLink="/single-courses/{{item.courseId}}">
                 <div class="single-courses-box mb-30">
                     <div class="courses-image">
-                        <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses1.jpg" alt="image"></a>
+                        <a routerLink="/single-courses/{{item.courseId}}" class="d-block"><img src={{item.imageURL}} alt="image"></a>
                         <div class="courses-tag">
-                            <a routerLink="/courses-3-columns-style-1" class="d-block">Business</a>
+                            <a routerLink="/" class="d-block">{{item.technologyName}}</a>
                         </div>
                     </div>
                     <div class="courses-content">
                         <div class="course-author d-flex align-items-center">
-                            <img src="assets/img/user1.jpg" class="rounded-circle mr-2" alt="image">
+                            <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
                             <span>Steven Smith</span>
                         </div>
-                        <h3><a routerLink="/single-courses" class="d-inline-block">Raque Professional IT Expert Certificate Course</a></h3>
+                        <h3><a routerLink="/single-courses/{{item.courseId}}" class="d-inline-block">{{item.courseName}}</a></h3>
                         <div class="courses-rating">
                             <div class="review-stars-rated">
                                 <i class='bx bxs-star'></i>
@@ -82,16 +82,16 @@
                                 <i class='bx bx-user'></i> 10 students
                             </li>
                             <li class="courses-lesson">
-                                <i class='bx bx-book-open'></i> 6 lessons
+                                <i class='bx bx-book-open'></i> {{item.count}} lessons
                             </li>
                             <li class="courses-price">
-                                Free
+                                ₹{{item.price}}
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <!-- <div class="col-lg-4 col-md-6">
                 <div class="single-courses-box mb-30">
                     <div class="courses-image">
                         <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses2.jpg" alt="image"></a>
@@ -311,7 +311,7 @@
                     <a routerLink="/courses-3-columns-style-1" class="page-numbers">5</a>
                     <a routerLink="/courses-3-columns-style-1" class="next page-numbers"><i class='bx bx-chevron-right'></i></a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

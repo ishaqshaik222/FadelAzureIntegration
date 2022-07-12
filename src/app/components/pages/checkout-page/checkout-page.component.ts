@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../auth.service';
 
 export class CartItems{
@@ -44,17 +45,34 @@ export class CheckoutPageComponent implements OnInit {
 
   constructor(
     private _authService: AuthService,
-
+    private _activatedroute:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.CartItems();
+    debugger
+    var Id= this._activatedroute.snapshot.params['id']
+    var Value=this._activatedroute.snapshot.params['value']
+    var Type=this._activatedroute.snapshot.params['type']
+    if(Value=="ProductItem"){
+      if(Type=="Plan"){
+        this.GetCoursesPlanById(Id);
+      }
+      if(Type=="Course"){
+        this.GetCourseById(Id)
+      }
+    }
+    else if(Value=="cartitems"){
+      this.CartItems(Id);
+    }
+    else{
+
+    }
   }
 
-  CartItems(){
+  CartItems(id:any){
     debugger
-    var userid=1
-    this._authService.GetCartItems(userid).subscribe((finalresult: any) => {
+    // var userid=1
+    this._authService.GetCartItems(id).subscribe((finalresult: any) => {
       debugger
       console.log(finalresult);
       // var finalresult=JSON.parse(finalresult)
@@ -131,7 +149,96 @@ export class CheckoutPageComponent implements OnInit {
 
     this._authService.PayNow(data).subscribe((finalresult: any) => {
       debugger
+      if(finalresult.status=="200"){
+        window.location.href=finalresult.result
+      }
     })
+  }
+
+  GetCoursesPlanById(id:any){
+    debugger
+    this._authService.GetCoursePlanById(id).subscribe((finalresult: any) => {
+      debugger
+      console.log(finalresult);
+      // var finalresult=JSON.parse(finalresult)
+      var plan=finalresult.result
+
+        const obj=new CartItems()
+        if(plan.offerPrice!=0){
+          obj.Tax=0;
+          // obj.Tax=((plan.offerPrice)*(plan.taxPercent))/100
+        }
+        else{
+          obj.Tax=0;
+          // obj.Tax= ((plan.price)*(plan.taxPercent))/100
+        }
+
+        obj.courseId=plan.courseId,
+        obj.coursename=plan.planName,
+        obj.price=plan.price
+        if(plan.offerPrice!=0){
+          obj.price=plan.offerPrice
+
+        }
+        obj.TotalPrice=obj.price+obj.Tax
+
+        this.carttable.push(obj)
+        this.TotalPrice=this.TotalPrice+obj.price
+        this.Tax=this.Tax+obj.Tax
+      
+      this.Total=this.TotalPrice+this.Tax
+
+      // for(let i=0;i<this.storedNames.length;i++){
+      //   this.courses.forEach(element => {
+          
+      //   });
+      // }
+      // this.cartcourses = this.courses.filter(item => this.storedValues.indexOf(item.id) === 1);
+    });
+  }
+
+  GetCourseById(id:any){
+    debugger
+  this._authService.GetcourseById(id).subscribe((finalresult: any) => {
+      debugger
+        console.log(finalresult.result);
+        // var finalresult=JSON.parse(finalresult)
+        var course=finalresult.result
+          const obj=new CartItems()
+          if(course.offerPrice!=0){
+            obj.Tax=((course.offerPrice)*(course.taxPercent))/100
+          }
+          else{
+            obj.Tax= ((course.price)*(course.taxPercent))/100
+          }
+  
+       
+          obj.cartId=course.cartId,
+          obj.courseId=course.courseId,
+          obj.coursename=course.courseName,
+          obj.imageURL=course.imageURL,
+          obj.price=course.price
+          if(course.offerPrice!=0){
+            obj.price=course.offerPrice
+  
+          }
+          obj.TotalPrice=obj.price+obj.Tax
+  
+          this.carttable.push(obj)
+          this.TotalPrice=this.TotalPrice+obj.price
+          this.Tax=this.Tax+obj.Tax
+        
+        this.Total=this.TotalPrice+this.Tax
+  
+        // for(let i=0;i<this.storedNames.length;i++){
+        //   this.courses.forEach(element => {
+            
+        //   });
+        // }
+        // this.cartcourses = this.courses.filter(item => this.storedValues.indexOf(item.id) === 1);
+      
+  })
+
   }
 
 }

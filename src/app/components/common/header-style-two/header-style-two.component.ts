@@ -27,6 +27,7 @@ export class HeaderStyleTwoComponent implements OnInit {
 
     ListData: Array<courses>=[];
     finaltabledata: Array<tableData>=[];
+    courseplans: any;
 
     constructor(private route: ActivatedRoute,
         private _authService: AuthService,
@@ -47,6 +48,7 @@ export class HeaderStyleTwoComponent implements OnInit {
         }
 
         this.GetTechnologies();
+        this.GetAllCoursePlans();
     }
 
     OnClick(id:any){
@@ -115,6 +117,15 @@ export class HeaderStyleTwoComponent implements OnInit {
         })
     }
 
+    GetAllCoursePlans(){
+        debugger
+        this._authService.GetAllCoursePlans().subscribe((finalresult: any) => {
+          debugger
+          this.courseplans=finalresult.result
+        })
+    }
 
-
+    GoToPage(id:any){
+        this._router.navigate(['/courses-2-columns-style-1/',id]);
+    }
 }

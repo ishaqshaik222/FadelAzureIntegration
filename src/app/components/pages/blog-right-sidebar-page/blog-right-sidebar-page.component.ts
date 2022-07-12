@@ -17,7 +17,8 @@ export class BlogRightSidebarPageComponent implements OnInit {
     private _router: Router,) { }
 
   ngOnInit(): void {
-    var id=2;
+     var id=2;
+   //var id=1;
     this.GetDetails(id);
   }
 
@@ -29,8 +30,17 @@ export class BlogRightSidebarPageComponent implements OnInit {
   }
   GoToPage(id:any){
     debugger
+    var baseurl=this._authService.baseUrl
     // localStorage.setItem('courseidfornavigate',id);
-    window.location.href='http://localhost:4200/app/vien/start/'+id
+    if(baseurl=="https://localhost:44358/"){
+    window.location.href='http://localhost:4300/#/app/'+id
+    }
+    else if(baseurl=="http://testugetitapi.fadelsoft.com/"){
+      window.location.href='http://ugetitstudent.fadelsoft.com/#/app/'+id
+    }
+    else{
+
+    }
     // this._router.navigateByUrl(this._authService.baseUrl+'app/vien/start',);
   }
   OnClick(id:any){

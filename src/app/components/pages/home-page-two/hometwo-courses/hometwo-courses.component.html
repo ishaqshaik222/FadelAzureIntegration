@@ -1,98 +1,99 @@
 <section class="courses-area pt-100 pb-70">
     <div class="container">
         <div class="section-title text-start">
-            <span class="sub-title">Discover Courses</span>
+            <!-- <span class="sub-title">Discover Courses</span> -->
             <h2>Our Popular Online Courses</h2>
-            <a routerLink="/courses-2-columns-style-1" class="default-btn"><i class='bx bx-show-alt icon-arrow before'></i><span class="label">All Courses</span><i class="bx bx-show-alt icon-arrow after"></i></a>
+            <a routerLink="/courses-3-columns-style-1" class="default-btn"><i class='bx bx-show-alt icon-arrow before'></i><span class="label">All Courses</span><i class="bx bx-show-alt icon-arrow after"></i></a>
         </div>
-        <ngx-tabset>
-            <ngx-tab tabTitle="Business (02)">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6" *ngFor="let item of courses" routerLink="/single-courses/{{item.courseId}}" >
-                        <div class="single-courses-box mb-30" >
-                            <div class="courses-image">
-                                <a routerLink="/single-courses/{{item.courseId}}" class="d-block"><img src={{item.imageURL}} alt="image"></a>
-                                <div class="courses-tag">
-                                    <a routerLink="/" class="d-block">{{item.technologyName}}</a>
-                                </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6" *ngFor="let item of courses" routerLink="/single-courses/{{item.courseId}}" >
+                <div class="single-courses-box mb-30" >
+                    <div class="courses-image">
+                        <a routerLink="/single-courses/{{item.courseId}}" class="d-block"><img src={{item.imageURL}} alt="image"></a>
+                        <div class="courses-tag">
+                            <a routerLink="/" class="d-block">{{item.technologyName}}</a>
+                        </div>
+                    </div>
+                    <div class="courses-content">
+                        <div class="course-author d-flex align-items-center">
+                            <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
+                            <span>Steven Smith</span>
+                        </div>
+                        <h3><a routerLink="/single-courses/{{item.courseId}}" class="d-inline-block">{{item.courseName}}</a></h3>
+                        <div class="courses-rating">
+                            <div class="review-stars-rated">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
                             </div>
-                            <div class="courses-content">
-                                <div class="course-author d-flex align-items-center">
-                                    <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
-                                    <span>Steven Smith</span>
-                                </div>
-                                <h3><a routerLink="/single-courses" class="d-inline-block">{{item.courseName}}</a></h3>
-                                <div class="courses-rating">
-                                    <div class="review-stars-rated">
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                    </div>
-                                    <div class="rating-total">
-                                        5.0 (1 rating)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="courses-box-footer">
-                                <ul>
-                                    <li class="students-number">
-                                        <i class='bx bx-user'></i> 0 students
-                                    </li>
-                                    <li class="courses-lesson">
-                                        <i class='bx bx-book-open'></i> {{item.count}} lessons
-                                    </li>
-                                    <li class="courses-price">
-                                        ₹{{item.price}}
-                                    </li>
-                                </ul>
+                            <div class="rating-total">
+                                5.0 (1 rating)
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-4 col-md-6">
-                        <div class="single-courses-box mb-30">
-                            <div class="courses-image">
-                                <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses3.jpg" alt="image"></a>
-                                <div class="courses-tag">
-                                    <a routerLink="/" class="d-block">Development</a>
-                                </div>
+                    <div class="courses-box-footer">
+                        <ul>
+                            <li class="students-number">
+                                <i class='bx bx-user'></i> 0 students
+                            </li>
+                            <li class="courses-lesson">
+                                <i class='bx bx-book-open'></i> {{item.count}} lessons
+                            </li>
+                            <li class="courses-price">
+                                ₹{{item.price}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-4 col-md-6">
+                <div class="single-courses-box mb-30">
+                    <div class="courses-image">
+                        <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses3.jpg" alt="image"></a>
+                        <div class="courses-tag">
+                            <a routerLink="/" class="d-block">Development</a>
+                        </div>
+                    </div>
+                    <div class="courses-content">
+                        <div class="course-author d-flex align-items-center">
+                            <img src="assets/img/user3.jpg" class="rounded-circle mr-2" alt="image">
+                            <span>James Anderson</span>
+                        </div>
+                        <h3><a routerLink="/single-courses" class="d-inline-block">Photography Crash Course for Photographer</a></h3>
+                        <div class="courses-rating">
+                            <div class="review-stars-rated">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bx-star'></i>
                             </div>
-                            <div class="courses-content">
-                                <div class="course-author d-flex align-items-center">
-                                    <img src="assets/img/user3.jpg" class="rounded-circle mr-2" alt="image">
-                                    <span>James Anderson</span>
-                                </div>
-                                <h3><a routerLink="/single-courses" class="d-inline-block">Photography Crash Course for Photographer</a></h3>
-                                <div class="courses-rating">
-                                    <div class="review-stars-rated">
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bx-star'></i>
-                                    </div>
-                                    <div class="rating-total">
-                                        4.0 (1 rating)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="courses-box-footer">
-                                <ul>
-                                    <li class="students-number">
-                                        <i class='bx bx-user'></i> 5 students
-                                    </li>
-                                    <li class="courses-lesson">
-                                        <i class='bx bx-book-open'></i> 5 lessons
-                                    </li>
-                                    <li class="courses-price">
-                                        $150
-                                    </li>
-                                </ul>
+                            <div class="rating-total">
+                                4.0 (1 rating)
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+                    <div class="courses-box-footer">
+                        <ul>
+                            <li class="students-number">
+                                <i class='bx bx-user'></i> 5 students
+                            </li>
+                            <li class="courses-lesson">
+                                <i class='bx bx-book-open'></i> 5 lessons
+                            </li>
+                            <li class="courses-price">
+                                $150
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div> -->
+        </div>
+        <!-- <ngx-tabset>
+            <ngx-tab tabTitle="Business (02)">
+               
             </ngx-tab>
             <ngx-tab tabTitle="All (06)">
                 <div class="row">
@@ -1219,6 +1220,6 @@
                     </div>
                 </div>
             </ngx-tab>
-        </ngx-tabset>
+        </ngx-tabset> -->
     </div>
 </section>

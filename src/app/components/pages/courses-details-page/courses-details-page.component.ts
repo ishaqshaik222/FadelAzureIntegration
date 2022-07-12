@@ -59,6 +59,7 @@ export class CoursesDetailsPageComponent implements OnInit {
   ImageTitle: any;
   ImageShortDescription: any;
   videoSource:any=[];
+  finalquestions: Array<any>=[];
 
   constructor(
     private approute: ActivatedRoute,
@@ -142,7 +143,31 @@ export class CoursesDetailsPageComponent implements OnInit {
       }
     });
   }
-
+  AddToCart(id:any){
+		debugger
+		// localStorage.setItem('cartplanid',id);
+		var data={
+		  UserId:1,
+		  ProductId:parseInt(id),
+		  CreatedBy:1
+		//   Type:'CoursePlan'
+		}
+		this._authService.AddCartItem(data).subscribe((finalresult: any) => {
+		  debugger
+		  var finalresult=JSON.parse(finalresult)
+		  if(finalresult.status=="200"){
+			window.location.reload();
+			// this._router.navigate(['/cart']);
+		  }
+		  else if(finalresult.status=="104"){
+			// this._router.navigate(['/cart']);
+		  }
+		  else{
+			
+		  }
+		})
+	  
+	  }
   BuyNow(id:any){
     debugger
     this.courseids=id
@@ -156,10 +181,10 @@ export class CoursesDetailsPageComponent implements OnInit {
       debugger
       var finalresult=JSON.parse(finalresult)
       if(finalresult.status=="200"){
-        this._router.navigate(['/cart']);
+        this._router.navigate(['/checkout/'+id+'/ProductItem/Course']);
       }
       else if(finalresult.status=="104"){
-        this._router.navigate(['/cart']);
+        this._router.navigate(['/checkout/'+id+'/ProductItem/Course']);
       }
       else{
         
@@ -254,6 +279,13 @@ export class CoursesDetailsPageComponent implements OnInit {
         
         this.questions=finalresult.result;
         
+        for(let i=0;i<this.questions.length;i++)
+          for(let j=0;j<this.questions.length;j++){
+            if(this.questions[j].orderId==(i+1)){
+              this.finalquestions.push(this.questions[j]);
+            }
+          
+        }
 
        
       }

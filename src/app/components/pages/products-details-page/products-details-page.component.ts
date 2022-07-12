@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../auth.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
     selector: 'app-products-details-page',
@@ -29,8 +30,15 @@ export class ProductsDetailsPageComponent implements OnInit {
 	) { }
 
     ngOnInit(): void {
+		debugger
 		var id = this.approute.snapshot.params['id'];
-    this.Edit(id);
+		var value=this.approute.snapshot.params['value']
+		if(value=="Course"){
+			this.Edit(id);
+		}
+		if(value=="Plan"){
+			this.GetPlanById(id);
+		}
     }
 	Edit(id: any) {
 		debugger
@@ -63,7 +71,7 @@ export class ProductsDetailsPageComponent implements OnInit {
 			this.offerprice=finalresult.result.offerPrice
 	
 			if (finalresult.result.imageURL != null) {
-			  this.ImageURL = baseurl + finalresult.result.imageURL;
+			  this.ImageURL =  finalresult.result.imageURL;
 			  // this.noimage=true;;
 	
 			}
@@ -86,6 +94,51 @@ export class ProductsDetailsPageComponent implements OnInit {
 	
 		  }
 		});
+	  }
+
+	  AddToCart(id:any){
+		debugger
+		// localStorage.setItem('cartplanid',id);
+		var data={
+		  UserId:1,
+		  ProductId:parseInt(id),
+		  CreatedBy:1
+		//   Type:'CoursePlan'
+		}
+		this._authService.AddCartItem(data).subscribe((finalresult: any) => {
+		  debugger
+		  var finalresult=JSON.parse(finalresult)
+		  if(finalresult.status=="200"){
+			window.location.reload();
+			// this._router.navigate(['/cart']);
+		  }
+		  else if(finalresult.status=="104"){
+			// this._router.navigate(['/cart']);
+		  }
+		  else{
+			
+		  }
+		})
+	  
+	  }
+
+	  GetPlanById(id:any){
+		this._authService.GetCoursePlanById(id).subscribe((finalresult: any) => {
+			debugger
+			console.log(finalresult);
+			//  var finalresult = JSON.parse(result);
+			// rolebyid=finalresult;
+			if (finalresult.status == "200") {
+			  debugger
+			  this.courseId=finalresult.result.planId
+			  this.courseName=finalresult.result.planName
+
+			  this.updatedDate=this.datepipe.transform(finalresult.result.updatedDate, 'dd-MM-yyyy')
+			  
+			  this.price=finalresult.result.price
+			  this.offerprice=finalresult.result.offerPrice
+			}
+		})
 	  }
 
     detailsImageSlides: OwlOptions = {
