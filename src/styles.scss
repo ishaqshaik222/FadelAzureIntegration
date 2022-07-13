@@ -2159,12 +2159,16 @@ textarea.form-control {
     }
     &.item-bg1 {
         background: {
-            image: url(assets/img/page-title/page-title1.jpg);
+            // image: url(assets/img/page-title/page-title1.jpg);
+            image: url(assets/img/default/Image-1.jpg);
+
         };
     }
     &.item-bg2 {
         background: {
-            image: url(assets/img/page-title/page-title2.jpg);
+            // image: url(assets/img/page-title/page-title2.jpg);
+            image: url(assets/img/default/Image-1.jpg);
+
         };
     }
     &.item-bg3 {

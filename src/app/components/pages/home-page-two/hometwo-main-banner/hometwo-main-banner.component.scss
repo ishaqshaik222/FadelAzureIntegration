@@ -1,5 +1,6 @@
 .main-banner {
-    height: 950px;
+    // height: 950px;
+    height: 470px;
     position: relative;
     z-index: 1;
     background: {
@@ -9,19 +10,26 @@
         repeat: no-repeat;
     };
     &.item-bg1 {
-        background-image: url(../../../../../assets/img/main-banner5.jpg);
+        // background-image: url(../../../../../assets/img/main-banner5.jpg);
+        background-image: url(../../../../../assets/img/default/pngtree-admissions.jpg);
+
     }
     &.item-bg2 {
-        background-image: url(../../../../../assets/img/main-banner4.jpg);
+        // background-image: url(../../../../../assets/img/main-banner4.jpg);
+        background-image: url(../../../../../assets/img/default/Image-1.jpg);
+
     }
     &.item-bg3 {
-        background-image: url(../../../../../assets/img/main-banner3.jpg);
+        // background-image: url(../../../../../assets/img/main-banner3.jpg);
+        background-image: url(../../../../../assets/img/default/Image-33.jpg);
+
     }
 }
 .main-banner-content {
     overflow: hidden;
     max-width: 750px;
-    margin-top: 150px;
+    // margin-top: 150px;
+    margin-top: 30px;
 
     .sub-title {
         display: block;

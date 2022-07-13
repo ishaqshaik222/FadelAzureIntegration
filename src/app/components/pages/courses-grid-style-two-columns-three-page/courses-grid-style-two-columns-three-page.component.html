@@ -1,13 +1,14 @@
-<app-header-style-three></app-header-style-three>
+<!-- <app-header-style-three></app-header-style-three> -->
+<app-header-style-two></app-header-style-two>
 
 <div class="page-title-area page-title-style-two item-bg4">
     <div class="container">
         <div class="page-title-content">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>Courses</li>
+                <li><a href="/">Home</a></li>
+                <li>Plans</li>
             </ul>
-            <h2>Courses 3 Columns</h2>
+            <h2>Course Plans</h2>
         </div>
     </div>
 </div>
@@ -49,10 +50,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" *ngFor="let item of finaltabledata" routerLink="/courses-2-columns-style-1/{{item.planId}}">
                 <div class="single-courses-item mb-30">
                     <div class="courses-image">
-                        <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses1.jpg" alt="image"></a>
+                        <a routerLink="/courses-2-columns-style-1/{{item.planId}}" class="d-block"><img src="https://ugetit.blob.core.windows.net/courseimages/1997d693-1f4d-404b-a3fc-19a5fade0397-Image-2.jpg" alt="image"></a>
                     </div>
                     <div class="courses-content">
                         <div class="d-flex justify-content-between align-items-center">
@@ -73,8 +74,8 @@
                                 </div>
                             </div>
                         </div>
-                        <h3><a routerLink="/single-courses" class="d-inline-block">Ednuv Professional IT Expert Certificate Course</a></h3>
-                        <p>Education encompasses both the teaching and learning of knowledge.</p>
+                        <h3><a routerLink="/single-courses" class="d-inline-block">{{item.planName}}</a></h3>
+                        <!-- <p>Education encompasses both the teaching and learning of knowledge.</p> -->
                     </div>
                     <div class="courses-box-footer">
                         <ul>
@@ -82,16 +83,16 @@
                                 <i class='bx bx-user'></i> 10 students
                             </li>
                             <li class="courses-lesson">
-                                <i class='bx bx-book-open'></i> 6 lessons
+                                <i class='bx bx-book-open'></i> {{item.length}} Courses
                             </li>
                             <li class="courses-price">
-                                Free
+                                ₹{{item.Price}}
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <!-- <div class="col-lg-4 col-md-6">
                 <div class="single-courses-item mb-30">
                     <div class="courses-image">
                         <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses2.jpg" alt="image"></a>
@@ -312,7 +313,7 @@
                     <a routerLink="/courses-3-columns-style-2" class="page-numbers">5</a>
                     <a routerLink="/courses-3-columns-style-2" class="next page-numbers"><i class='bx bx-chevron-right'></i></a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

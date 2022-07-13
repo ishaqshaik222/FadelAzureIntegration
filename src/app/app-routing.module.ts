@@ -92,7 +92,7 @@ const routes: Routes = [
     {path: 'partner', component: PartnerPageComponent},
     {path: 'login', component: LoginPageComponent},
     {path: 'register', component: RegisterPageComponent},
-    {path: 'faqs', component: FaqPageComponent},
+    {path: 'faqs/:value', component: FaqPageComponent},
     {path: 'error-404', component: ErrorPageComponent},
     {path: 'coming-soon', component: ComingSoonPageComponent},
     {path: 'courses-category-style-1', component: CategoryPageOneComponent},
