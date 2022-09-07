@@ -1,3 +1,19 @@
 @import "../home-page-six/homesix-courses/homesix-courses.component.scss";
 
 @import "../../common/blog/blog.component.scss";
+
+img{
+    width: 336px;
+        height: 225px;
+}
+
+.rating-list li:hover,
+      .rating-list li:hover ~ li, .rating-list li.selected {
+        color: #ffd700;
+      }
+      
+      
+      .rating-list {
+        display: inline-block;
+        list-style: none;
+      }

@@ -1,4 +1,25 @@
 @import "../home-page-one/homeone-courses/homeone-courses.component.scss";
+p{
+    color:black
+}
+
+.rating-list li:hover,
+      .rating-list li:hover ~ li, .rating-list li.selected {
+        color: #ffd700;
+      }
+      
+      
+      .rating-list {
+        display: inline-block;
+        list-style: none;
+      }
+
+.single-courses-box{
+    img{
+        width: 100%;
+        height: 225px;
+    }
+}
 
 .instructor-details-area {
     .section-title {
@@ -22,18 +43,18 @@
                 list-style-type: none;
     
                 li {
-                    position: relative;
-                    text-align: start;
-                    display: inline-block;
+                    // position: relative;
+                    // text-align: start;
+                    // display: inline-block;
                     font: {
                         weight: 500;
                         size: 16px;
                     };
                     padding: {
-                        left: 37px;
+                        // left: 37px;
                     };
                     margin: {
-                        left: 8px;
+                        // left: 8px;
                         right: 8px;
                     };
                     i {
@@ -193,15 +214,15 @@
                 list-style-type: none;
 
                 li {
-                    position: relative;
-                    text-align: start;
-                    display: block;
+                    // position: relative;
+                    // text-align: start;
+                    // display: block;
                     font: {
                         weight: 500;
                         size: 16px;
                     };
                     padding: {
-                        left: 37px;
+                        // left: 37px;
                     };
                     margin: {
                         bottom: 15px;
@@ -219,7 +240,7 @@
                     }
                     span {
                         display: block;
-                        color: var(--mainColor);
+                        // color: var(--mainColor);
                         text-transform: uppercase;
                         margin-bottom: 1px;
                         font: {

@@ -1,7 +1,24 @@
 @import "../../common/blog/blog.component.scss";
 
+
+// img{
+//     width: 336px;
+//         height: 225px;
+// }
+
 img{
-    width: 336px;
-        height: 225px;
+    width: 100%;
+    height: 225px;
 }
+.single-blog-post{
+    box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+
+    // border: {
+    //     radius: 50%;
+    //     style: solid;
+    //     color: #e3e4ef;
+    //     width: 2px;
+    // };
+}
+
 

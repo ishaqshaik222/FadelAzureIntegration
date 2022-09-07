@@ -9,6 +9,7 @@ import { TabsetComponent } from 'ngx-tabset';
 })
 export class FaqPageComponent implements OnInit {
   @ViewChild('tabSet') tabset: TabsetComponent;
+  currentTabId: number=0;
   
   constructor(private route:Router,private activatedroute:ActivatedRoute) { 
 
@@ -18,8 +19,9 @@ export class FaqPageComponent implements OnInit {
     debugger
     // this.activatedroute.queryParams.subscribe(params => {
       var value=this.activatedroute.snapshot.params['value']
-      let tab = ["PrivacyPolicy", "TermsofUse", "RefundPolicy","ReschedulePolicy"].indexOf(value);
-      this.tabset.tabs[tab > -1 ? tab : 0].active = true;
+      let tab = ["Privacy Policy", "Terms of Use", "cancellation and refund policy","Reschedule Policy"].indexOf(value);
+      this.currentTabId = tab
+      // this.tabset.tabs[tab].active = true;
     // });
   }
 

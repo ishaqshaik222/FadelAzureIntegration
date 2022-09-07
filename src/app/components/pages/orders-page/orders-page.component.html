@@ -15,7 +15,7 @@
 
 <div class="my-dashboard-area ptb-100">
     <div class="container">
-        <div class="myDashboard-navigation">
+        <!-- <div class="myDashboard-navigation">
             <ul>
                 <li><a routerLink="/my-dashboard"><i class='bx bxs-dashboard'></i> Dashboard</a></li>
                 <li><a routerLink="/orders" class="active"><i class='bx bx-cart'></i> Orders</a></li>
@@ -24,28 +24,31 @@
                 <li><a routerLink="/edit-account"><i class='bx bx-edit'></i> Account Details</a></li>
                 <li><a routerLink="/"><i class='bx bx-log-out'></i> Logout</a></li>
             </ul>
-        </div>
+        </div> -->
         <div class="myDashboard-content">
             <div class="orders-table table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Order</th>
+                            <th>InvoiceNo</th>
                             <th>Date</th>
                             <th>Status</th>
-                            <th>Total</th>
+                            <th>TotalPrice</th>
+                            <th>Payment Type</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>#074145O5</td>
-                            <td>October 18, 2019</td>
-                            <td>Completed</td>
-                            <td>$49.00 for 1 item</td>
-                            <td><a routerLink="/single-courses" class="view-button">View</a></td>
+                        <tr *ngFor="let item of myorders">
+                            <td>{{item.invoiceNo}}</td>
+                            <td>{{item.invoiceDate|date:'dd-MM-yyyy'}}</td>
+                            <td>{{item.paymentStatus}}</td>
+                            <td>{{item.totalAmount}}</td>
+                            <td>{{item.cardNumber}}</td>
+
+                            <td><a (click)="GoTo(item.invoiceNo)" class="view-button">Receipt</a></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>#074145O6</td>
                             <td>October 18, 2019</td>
                             <td>On Hold</td>
@@ -79,7 +82,7 @@
                             <td>Completed</td>
                             <td>$49.00 for 1 item</td>
                             <td><a routerLink="/single-courses" class="view-button">View</a></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

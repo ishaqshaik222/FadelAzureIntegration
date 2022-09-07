@@ -4,7 +4,7 @@
     <div class="container">
         <div class="page-title-content">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li>Instructor Details</li>
             </ul>
             <h2>Instructor Details</h2>
@@ -18,8 +18,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                     <div class="instructor-details-sidebar">
-                        <img src="assets/img/instructor/instructor1.jpg" alt="image">
-                        <div class="instructor-details-meta">
+                        <img src={{InstructorImage}} alt="image">
+                        <!-- <div class="instructor-details-meta">
                             <ul>
                                 <li>
                                     <i class='bx bxs-group'></i>
@@ -32,26 +32,25 @@
                                     <a routerLink="/">81</a>
                                 </li>
                             </ul>
-                        </div>
-                        <a routerLink="/contact" class="default-btn"><i class='bx bx-plus-circle icon-arrow before'></i><span class="label">Follow</span><i class="bx bx-plus-circle icon-arrow after"></i></a>
-                        <ul class="social-link">
+                        </div> -->
+                        <!-- <a routerLink="/contact" class="default-btn"><i class='bx bx-plus-circle icon-arrow before'></i><span class="label">Follow</span><i class="bx bx-plus-circle icon-arrow after"></i></a> -->
+                        <!-- <ul class="social-link">
                             <li><a href="#" class="d-block facebook" target="_blank"><i class='bx bxl-facebook'></i></a></li>
                             <li><a href="#" class="d-block twitter" target="_blank"><i class='bx bxl-twitter'></i></a></li>
                             <li><a href="#" class="d-block instagram" target="_blank"><i class='bx bxl-instagram'></i></a></li>
                             <li><a href="#" class="d-block linkedin" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
                             <li><a href="#" class="d-block pinterest" target="_blank"><i class='bx bxl-pinterest-alt'></i></a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="instructor-details">
-                        <h3>Jonkin Jullinor</h3>
-                        <span class="sub-title">Angular Teacher</span>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                        <h3>{{InstrcuctorName}}</h3>
+                        <span class="sub-title">{{InstrcuctorShortDesc}}</span>
+                        <p>{{InstrcuctorLongDesc}}</p>
                         <div class="instructor-details-info">
                             <div class="row">
-                                <div class="col-lg-6 col-md-12">
+                                <!-- <div class="col-lg-6 col-md-12">
                                     <h3>My Education</h3>
                                     <ul>
                                         <li>
@@ -65,20 +64,19 @@
                                             Bachelor in English
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                                 <div class="col-lg-6 col-md-12">
-                                    <h3>My Experience</h3>
+                                    <h3>Experience</h3>
                                     <ul>
                                         <li>
-                                            <i class='bx bx-briefcase'></i>
-                                            <span>Envato</span>
-                                            2000-2010
+                                            <!-- <i class='bx bx-briefcase'></i> -->
+                                            <p >{{InstructorExperience}} Years</p>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <i class='bx bx-briefcase'></i>
                                             <span>EnvyTheme</span>
                                             2010-2020
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -88,33 +86,35 @@
             </div>
         </div>
         <div class="section-title text-start">
-            <h2>Courses by Jonkin Jullinor</h2>
+            <h2>Courses by {{InstrcuctorName}}</h2>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-courses-box mb-30">
+            <div class="col-lg-3 col-md-6" *ngFor="let item of courses" >
+                <div class="single-courses-box mb-30"  (click)="GoTOPage(item.courseId)">
                     <div class="courses-image">
-                        <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses1.jpg" alt="image"></a>
+                        <a (click)="GoTOPage(item.courseId)" class="d-block"><img src={{item.iconUrl}} alt="image"></a>
                         <div class="courses-tag">
-                            <a routerLink="/" class="d-block">Business</a>
+                            <a routerLink="/" class="d-block">{{item.technologyName}}</a>
                         </div>
                     </div>
                     <div class="courses-content">
                         <div class="course-author d-flex align-items-center">
-                            <img src="assets/img/user1.jpg" class="rounded-circle mr-2" alt="image">
-                            <span>Steven Smith</span>
+                            <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
+                            <!-- <span>Steven Smith</span> -->
                         </div>
-                        <h3><a routerLink="/single-courses" class="d-inline-block">Raque Professional IT Expert Certificate Course</a></h3>
+                        <h3><a routerLink="/single-courses/{{item.courseId}}" class="d-inline-block">{{item.courseName}}</a></h3>
                         <div class="courses-rating">
                             <div class="review-stars-rated">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
+                                <ul class="list-inline rating-list" 
+                                    *ngFor="let star of stars" style="display:inline-block;" >
+                                    <li 
+                                        [ngClass]="{'selected': (star <= item.average)}">
+                                        <i class="bx bxs-star"></i>
+                                     </li> 
+                                </ul>
                             </div>
                             <div class="rating-total">
-                                5.0 (1 rating)
+                                {{item.average}} ({{item.noOfRatings}} rating)
                             </div>
                         </div>
                     </div>
@@ -124,16 +124,16 @@
                                 <i class='bx bx-user'></i> 10 students
                             </li>
                             <li class="courses-lesson">
-                                <i class='bx bx-book-open'></i> 6 lessons
+                                <i class='bx bx-book-open'></i> {{item.count}} lessons
                             </li>
                             <li class="courses-price">
-                                Free
+                                ₹{{item.price}}
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <!-- <div class="col-lg-4 col-md-6">
                 <div class="single-courses-box mb-30">
                     <div class="courses-image">
                         <a routerLink="/single-courses" class="d-block"><img src="assets/img/courses/courses2.jpg" alt="image"></a>
@@ -216,7 +216,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

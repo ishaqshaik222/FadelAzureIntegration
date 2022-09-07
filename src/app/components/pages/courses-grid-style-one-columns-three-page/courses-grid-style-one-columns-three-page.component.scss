@@ -7,3 +7,19 @@
 //         image: url(assets/img/default/Image-1.jpg);
 //     };
 // }
+
+.rating-list li:hover,
+      .rating-list li:hover ~ li, .rating-list li.selected {
+        color: #ffd700;
+      }
+      
+      
+      .rating-list {
+        display: inline-block;
+        list-style: none;
+      }
+
+      img{
+        width: 100%;
+        height: 225px;
+    }

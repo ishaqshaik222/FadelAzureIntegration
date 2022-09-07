@@ -1,9 +1,11 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ThisReceiver } from '@angular/compiler';
+import { HeaderStyleTwoComponent } from '../../common/header-style-two/header-style-two.component';
+import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
 
 @Component({
     selector: 'app-products-details-page',
@@ -26,7 +28,11 @@ export class ProductsDetailsPageComponent implements OnInit {
     constructor(
 	private approute: ActivatedRoute,
     private _authService: AuthService,
-    private datepipe: DatePipe
+    private datepipe: DatePipe,
+	private _router:Router,
+	@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
+    private authService: MsalService,
+    private msalBroadcastService: MsalBroadcastService
 	) { }
 
     ngOnInit(): void {
@@ -99,8 +105,10 @@ export class ProductsDetailsPageComponent implements OnInit {
 	  AddToCart(id:any){
 		debugger
 		// localStorage.setItem('cartplanid',id);
+		var val=localStorage.getItem('AzureUserId')
+		if(val!='null'){
 		var data={
-		  UserId:1,
+		  UserId:localStorage.getItem('AzureUserId'),
 		  ProductId:parseInt(id),
 		  CreatedBy:1
 		//   Type:'CoursePlan'
@@ -119,6 +127,15 @@ export class ProductsDetailsPageComponent implements OnInit {
 			
 		  }
 		})
+		}
+		else if(val=='null'){
+			let myCompOneObj = new HeaderStyleTwoComponent(
+				this.approute, this._authService, this._router, this.msalGuardConfig, this.authService, this.msalBroadcastService
+			  );
+		
+			  myCompOneObj.login();
+		}
+
 	  
 	  }
 

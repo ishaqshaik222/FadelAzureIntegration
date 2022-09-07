@@ -13,7 +13,8 @@
     --transition: .5s;
 }
 body {
-    background-color: var(--whiteColor);
+    // background-color: var(--whiteColor);
+    background-color: #fafafa;
     padding: 0;
     margin: 0;
     font: {
@@ -1049,9 +1050,9 @@ textarea.form-control {
     position: relative;
     z-index: 1;
     
-    &.bg-image {
-        background-image: url(assets/img/pattern.jpg);
-    }
+    // &.bg-image {
+    //     background-image: url(assets/img/pattern.jpg);
+    // }
 }
 .owl-item {
     &:nth-child(2), &:nth-child(8) {
@@ -2142,8 +2143,10 @@ textarea.form-control {
     };
     
     padding: {
-        top: 200px;
-        bottom: 120px;
+        top: 100px;
+        // top: 200px;
+        // bottom: 120px;
+        bottom: 60px;
     };
     &.page-title-style-two {
         padding: {

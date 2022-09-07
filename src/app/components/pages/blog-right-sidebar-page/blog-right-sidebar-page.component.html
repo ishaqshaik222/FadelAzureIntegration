@@ -17,9 +17,9 @@
 <div class="blog-area ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-12 col-md-12">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6" *ngFor="let item of data">
+                    <div class="col-lg-3 col-md-6" *ngFor="let item of values">
                         <div class="single-blog-post mb-30">
                             <div class="post-image">
                                 <!-- <a routerLink="/single-blog" class="d-block"> -->
@@ -29,18 +29,18 @@
 
                                 </a>
                                 <div class="tag">
-                                    <a routerLink="/blog-style-2">Learning</a>
+                                    <a routerLink="/blog-style-2">{{item.technologyName}}</a>
                                 </div>
                             </div>
                             <div class="post-content">
                                 <ul class="post-meta">
                                     <li class="post-author">
                                         <img src={{item.iconUrl}}  class="d-inline-block rounded-circle mr-2" alt="image">
-                                        By: <a routerLink="/blog-style-2" class="d-inline-block">Steven Smith</a>
+                                        By: <a routerLink="/blog-style-2" class="d-inline-block">{{item.facultyName}}</a>
                                     </li>
                                     <li><a routerLink="/blog-style-2">{{item.effectiveFrom |date:"dd-MM-yyyy"}}</a></li>
                                 </ul>
-                                <h3><a routerLink="/single-blog" class="d-inline-block">{{item.imageCaption}}</a></h3>
+                                <h3><a routerLink="/blog-style-2" class="d-inline-block">{{item.courseName}}</a></h3>
                                 <a (click)="OnClick(item.courseId)" class="read-more-btn">Read More <i class='bx bx-right-arrow-alt'></i></a>
                             </div>
                         </div>
@@ -220,7 +220,7 @@
                     </div> -->
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12">
+            <!-- <div class="col-lg-4 col-md-12">
                 <aside class="widget-area">
                     <div class="widget widget_search">
                         <form class="search-form">
@@ -308,7 +308,7 @@
                         </div>
                     </div>
                 </aside>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

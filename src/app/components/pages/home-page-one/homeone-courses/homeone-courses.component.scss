@@ -38,7 +38,7 @@
     }
     .courses-content {
         padding: 25px 25px 20px;
-
+        height:150px;
         .course-author {
             margin-bottom: 13px;
 
@@ -64,11 +64,11 @@
         }
         .courses-rating {
             .review-stars-rated {
-                color: #f2b827;
+                // color: #f2b827;
                 display: inline-block;
 
                 i {
-                    color: #f2b827;
+                    // color: #f2b827;
                     font-size: 16px;
                     margin-right: 2px;
                 }
@@ -153,7 +153,7 @@
     }
     &:hover, &:focus {
         transform: translateY(-10px);
-
+        border: 2px solid black;
         .courses-image {
             .courses-tag {
                 background-color: var(--optionalColor);

@@ -62,10 +62,27 @@ import { HomePageElevenComponent } from './components/pages/home-page-eleven/hom
 import { HomePageTwelveComponent } from './components/pages/home-page-twelve/home-page-twelve.component';
 import { HomePageThirteenComponent } from './components/pages/home-page-thirteen/home-page-thirteen.component';
 import { HomePageFourteenComponent } from './components/pages/home-page-fourteen/home-page-fourteen.component';
+import { ReceiptComponent } from './components/pages/receipt/receipt.component';
 
 const routes: Routes = [
     // {path: '', component: HomePageOneComponent},
     {path: '', component: HomePageTwoComponent},
+
+    {
+    // Needed for hash routing
+    path: 'error',
+    component: HomePageTwoComponent
+  },
+  {
+    // Needed for hash routing
+    path: 'state',
+    component: HomePageTwoComponent
+  },
+  {
+    // Needed for hash routing
+    path: 'code',
+    component: HomePageTwoComponent
+  },
     {path: 'distant-learning', component: HomePageThreeComponent},
     {path: 'modern-teaching', component: HomePageFourComponent},
     {path: 'online-schooling', component: HomePageFiveComponent},
@@ -83,7 +100,7 @@ const routes: Routes = [
     {path: 'instructor-1', component: InstructorsPageOneComponent},
     {path: 'instructor-2', component: InstructorsPageTwoComponent},
     {path: 'instructor-3', component: InstructorsPageThreeComponent},
-    {path: 'single-instructor', component: InstructorsDetailsPageComponent},
+    {path: 'single-instructor/:id', component: InstructorsDetailsPageComponent},
     {path: 'gallery', component: GalleryPageComponent},
     {path: 'events', component: EventsPageComponent},
     {path: 'single-events', component: EventsDetailsPageComponent},
@@ -123,7 +140,7 @@ const routes: Routes = [
     {path: 'shop-grid', component: ShopGridPageComponent},
     {path: 'shop-grid-fullwidth', component: ShopFullWidthPageComponent},
     {path: 'single-products/:id/:value', component: ProductsDetailsPageComponent},
-    // {path: 'cart/:id', component: CartPageComponent},
+    {path: 'receipts/:Invoiceno', component: ReceiptComponent},
     {path: 'cart', component: CartPageComponent},
     {path: 'checkout/:id/:value/:type', component: CheckoutPageComponent},
     {path: 'contact', component: ContactPageComponent},
@@ -132,9 +149,15 @@ const routes: Routes = [
     {path: '**', component: ErrorPageComponent} // This line will remain down from the whole pages component list
 ];
 
+const isIframe = window !== window.parent && !window.opener;
+
+
 @NgModule({
     // imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-       imports: [RouterModule.forRoot(routes, {useHash:true})],
+       imports: [RouterModule.forRoot(routes,{useHash: true,
+        // Don't perform initial navigation in iframes
+       initialNavigation: !isIframe ? 'enabled' : 'disabled'}
+       )],
 
     exports: [RouterModule]
 })

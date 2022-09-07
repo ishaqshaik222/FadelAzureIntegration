@@ -8,7 +8,7 @@ import { AuthService } from '../../auth.service';
 })
 export class CoursesGridStyleOneColumnsThreePageComponent implements OnInit {
   courses: any;
-
+  stars: number[] = [1, 2, 3, 4, 5];
   constructor(private _authService:AuthService) { }
 
   ngOnInit(): void {

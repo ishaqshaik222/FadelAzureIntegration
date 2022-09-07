@@ -150,7 +150,7 @@
                     <!-- <li>Shipping <span>₹30.00</span></li> -->
                     <li>Total <span>{{Total}}</span></li>
                 </ul>
-                <a routerLink="/checkout/1/cartitems/cart" class="default-btn"><i class='bx bx-shopping-bag icon-arrow before'></i><span class="label">Proceed to Checkout</span><i class="bx bx-shopping-bag icon-arrow after"></i></a>
+                <a (click)="GoToCheckOutPage()" style="cursor:pointer" class="default-btn"><i class='bx bx-shopping-bag icon-arrow before'></i><span class="label">Proceed to Checkout</span><i class="bx bx-shopping-bag icon-arrow after"></i></a>
             </div>
         </form>
     </div>

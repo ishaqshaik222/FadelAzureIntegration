@@ -51,7 +51,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6" *ngFor="let item of finaltabledata" routerLink="/courses-2-columns-style-1/{{item.planId}}">
-                <div class="single-courses-item mb-30">
+                <div class="single-courses-item mb-30" routerLink="/courses-2-columns-style-1/{{item.planId}}">
                     <div class="courses-image">
                         <a routerLink="/courses-2-columns-style-1/{{item.planId}}" class="d-block"><img src="https://ugetit.blob.core.windows.net/courseimages/1997d693-1f4d-404b-a3fc-19a5fade0397-Image-2.jpg" alt="image"></a>
                     </div>
@@ -59,22 +59,24 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="course-author d-flex align-items-center">
                                 <img src="assets/img/user1.jpg" class="shadow" alt="image">
-                                <span>Steven Smith</span>
+                                <!-- <span>Steven Smith</span> -->
                             </div>
-                            <div class="courses-rating">
+                            <!-- <div class="courses-rating">
                                 <div class="review-stars-rated">
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star'></i>
-                                    <i class='bx bxs-star-half'></i>
+                                    <ul class="list-inline rating-list" 
+                                    *ngFor="let star of stars" style="display:inline-block;" >
+                                    <li 
+                                        [ngClass]="{'selected': (star <= item.average)}">
+                                        <i class="bx bxs-star"></i>
+                                     </li> 
+                                </ul>
                                 </div>
                                 <div class="rating-total">
                                     4.5 (2)
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
-                        <h3><a routerLink="/single-courses" class="d-inline-block">{{item.planName}}</a></h3>
+                        <h3><a routerLink="/courses-2-columns-style-1/{{item.planId}}" class="d-inline-block">{{item.planName}}</a></h3>
                         <!-- <p>Education encompasses both the teaching and learning of knowledge.</p> -->
                     </div>
                     <div class="courses-box-footer">

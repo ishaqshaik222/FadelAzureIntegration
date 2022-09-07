@@ -183,15 +183,17 @@ import { FreeTrialFormComponent } from './components/common/free-trial-form/free
 import { FunfactsStyleFourComponent } from './components/common/funfacts-style-four/funfacts-style-four.component';
 import { environment } from 'src/environments/environment';
 import { IPublicClientApplication, PublicClientApplication, InteractionType } from '@azure/msal-browser';
-import { MsalGuard, MsalBroadcastService, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MsalGuardConfiguration, MsalRedirectComponent } from '@azure/msal-angular';
+import { MsalGuard, MsalBroadcastService, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MsalGuardConfiguration, MsalRedirectComponent, MsalInterceptorConfiguration, MsalInterceptor, MSAL_INTERCEPTOR_CONFIG } from '@azure/msal-angular';
 
-import { msalConfig } from '../auth-config';
+import { loginRequest, msalConfig, protectedResources } from '../auth-config';
 import { ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { AccordionModule } from "ngx-accordion";
 import { AccordionGroup } from 'ngx-accordion';
 import { RouterModule } from '@angular/router';
+import { AuthService } from './components/auth.service';
+import { ReceiptComponent } from './components/pages/receipt/receipt.component';
 
 
 /**
@@ -202,6 +204,24 @@ export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication(msalConfig);
 }
 
+
+/**
+ * MSAL Angular will automatically retrieve tokens for resources 
+ * added to protectedResourceMap. For more info, visit: 
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/docs/v2-docs/initialization.md#get-tokens-for-web-api-calls
+ */
+
+//  export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
+//   const protectedResourceMap = new Map<string, Array<string>>();
+
+//   protectedResourceMap.set(protectedResources.todoListApi.endpoint, protectedResources.todoListApi.scopes);
+
+//   return {
+//     interactionType: InteractionType.Redirect,
+//     protectedResourceMap
+//   };
+// }
+
 /**
  * Set your default interaction type for MSALGuard here. If you have any
  * additional scopes you want the user to consent upon login, add them here as well.
@@ -209,6 +229,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   return { 
     interactionType: InteractionType.Redirect,
+    // authRequest: loginRequest
   };
 }
 
@@ -384,6 +405,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     HomefourteenAboutComponent,
     FreeTrialFormComponent,
     FunfactsStyleFourComponent,
+    ReceiptComponent,
     // AccordionModule,
   ],
   imports: [
@@ -402,10 +424,17 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     LightgalleryModule,
     ReactiveFormsModule,
     HttpClientModule ,
+    MsalModule
+
     // AccordionGroup,
     
   ],
   providers: [ 
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: MsalInterceptor,
+    //   multi: true
+    // },
     {
       provide: MSAL_INSTANCE,
       useFactory: MSALInstanceFactory,
@@ -416,10 +445,16 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
       provide: MSAL_GUARD_CONFIG,
       useFactory: MSALGuardConfigFactory
     }, 
+    // {
+    //   provide: MSAL_INTERCEPTOR_CONFIG,
+    //   useFactory: MSALInterceptorConfigFactory
+    // },
+  
     MsalService,
     MsalGuard,
     MsalBroadcastService,
-    DatePipe
+    DatePipe,
+    AuthService
   ],
   bootstrap: [AppComponent,MsalRedirectComponent]
 })

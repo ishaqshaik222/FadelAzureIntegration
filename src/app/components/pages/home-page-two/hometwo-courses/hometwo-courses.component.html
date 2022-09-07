@@ -2,14 +2,14 @@
     <div class="container">
         <div class="section-title text-start">
             <!-- <span class="sub-title">Discover Courses</span> -->
-            <h2>Our Popular Online Courses</h2>
+            <h2>Our Popular Courses</h2>
             <a routerLink="/courses-3-columns-style-1" class="default-btn"><i class='bx bx-show-alt icon-arrow before'></i><span class="label">All Courses</span><i class="bx bx-show-alt icon-arrow after"></i></a>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6" *ngFor="let item of courses" routerLink="/single-courses/{{item.courseId}}" >
+            <div class="col-lg-3 col-md-3" *ngFor="let item of courses"  >
                 <div class="single-courses-box mb-30" >
                     <div class="courses-image">
-                        <a routerLink="/single-courses/{{item.courseId}}" class="d-block"><img src={{item.imageURL}} alt="image"></a>
+                        <a routerLink="/single-courses/{{item.courseId}}" class="d-block"><img src={{item.iconUrl}} alt="image"></a>
                         <div class="courses-tag">
                             <a routerLink="/" class="d-block">{{item.technologyName}}</a>
                         </div>
@@ -17,19 +17,21 @@
                     <div class="courses-content">
                         <div class="course-author d-flex align-items-center">
                             <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
-                            <span>Steven Smith</span>
+                            <span>{{item.facultyName}}</span>
                         </div>
                         <h3><a routerLink="/single-courses/{{item.courseId}}" class="d-inline-block">{{item.courseName}}</a></h3>
                         <div class="courses-rating">
                             <div class="review-stars-rated">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
+                                <ul class="list-inline rating-list" 
+                                    *ngFor="let star of stars" style="display:inline-block;" >
+                                    <li 
+                                        [ngClass]="{'selected': (star <= item.average)}">
+                                        <i class="bx bxs-star"></i>
+                                     </li> 
+                                </ul>
                             </div>
                             <div class="rating-total">
-                                5.0 (1 rating)
+                                {{item.average}} ({{item.noOfRatings}} rating)
                             </div>
                         </div>
                     </div>

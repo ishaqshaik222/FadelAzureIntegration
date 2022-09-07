@@ -11,13 +11,17 @@ export class HometwoCoursesComponent implements OnInit {
   courses: any;
   techs: any;
   price: any;
-
+  InstrcuctorName: string;
+  ratings: any;
+  selectedValue: number;
+  stars: number[] = [1, 2, 3, 4, 5];
   constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
     this.Getcourses()
     this.Gettechnologies();
   }
+
   Gettechnologies() {
     // var baseurl = this._authService.baseUrl;
     // if (baseurl == "https://localhost:44358/") {
@@ -61,6 +65,9 @@ export class HometwoCoursesComponent implements OnInit {
     if (baseurl == "https://localhost:44358/") {
       baseurl = "https://localhost:44358"
     }
+    if (baseurl == "https://testugetitapi.fadelsoft.com/") {
+      baseurl = "https://testugetitapi.fadelsoft.com"
+    }
     if (baseurl == "http://testugetitapi.fadelsoft.com/") {
       baseurl = "http://testugetitapi.fadelsoft.com"
     }
@@ -68,6 +75,7 @@ export class HometwoCoursesComponent implements OnInit {
     this._authService.GetCourses().subscribe((finalresult: any) => {
       debugger
       // var finalresult = JSON.parse(finalresult);
+
       if (finalresult.status == "200") {
         debugger
         console.log(finalresult.result)
@@ -113,6 +121,11 @@ export class HometwoCoursesComponent implements OnInit {
 
       }
     });
+
+    this._authService.GetAllRatingsAndComments().subscribe((finalresult: any) => {
+      debugger
+      this.ratings=finalresult.result
+    })
   }
 
 }

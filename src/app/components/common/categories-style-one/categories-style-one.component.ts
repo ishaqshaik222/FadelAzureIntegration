@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { AuthService } from '../../auth.service';
+import { HeaderStyleTwoComponent } from '../../common/header-style-two/header-style-two.component';
+import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
 
 export class FinalData{
 	planId:any
@@ -31,6 +33,10 @@ export class CategoriesStyleOneComponent implements OnInit {
 	finaltabledata: Array<FinalData>=[];
     constructor(private _authService: AuthService,   
 		 private _router: Router,
+		 private approute: ActivatedRoute,
+		 @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
+		 private authService: MsalService,
+		 private msalBroadcastService: MsalBroadcastService
 
 		) { }
 
@@ -74,8 +80,10 @@ export class CategoriesStyleOneComponent implements OnInit {
 	AddToCart(id:any){
 		debugger
 		// localStorage.setItem('cartplanid',id);
+		var val=localStorage.getItem('AzureUserId')
+		if(val!='null'){
 		var data={
-		  UserId:1,
+		  UserId:localStorage.getItem('AzureUserId'),
 		  ProductId:parseInt(id),
 		  CreatedBy:1,
 		  Type:'CoursePlan'
@@ -94,7 +102,14 @@ export class CategoriesStyleOneComponent implements OnInit {
 			
 		  }
 		})
-	  
+		}
+		else if(val=='null'){
+			let myCompOneObj = new HeaderStyleTwoComponent(
+				this.approute, this._authService, this._router, this.msalGuardConfig, this.authService, this.msalBroadcastService
+			  );
+		
+			  myCompOneObj.login();
+		}
 	  }
 
 
@@ -110,6 +125,7 @@ export class CategoriesStyleOneComponent implements OnInit {
 		autoplayHoverPause: true,
 		autoplay: true,
 		margin: 30,
+		items: 4,
 		navText: [
 			"<i class='bx bx-left-arrow-alt'></i>",
 			"<i class='bx bx-right-arrow-alt'></i>"
@@ -122,7 +138,7 @@ export class CategoriesStyleOneComponent implements OnInit {
 				items: 2
 			},
 			768: {
-				items: 3
+				items: 4
 			},
 			1200: {
 				items: 4

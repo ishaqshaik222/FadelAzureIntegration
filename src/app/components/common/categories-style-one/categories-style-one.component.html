@@ -1,39 +1,39 @@
 <div class="courses-categories-slides">
-    <owl-carousel-o [options]="categoriesSlides" >
-        <ng-template carouselSlide *ngFor="let item of finaltabledata">
+    <owl-carousel-o [options]="categoriesSlides">
+        <ng-template carouselSlide  *ngFor="let item of finaltabledata">
 
             <div >
-                <div   (click)="GoToPage(item.planId)" >
-                    <div class="single-courses-box mb-30" >
-                        <div class="courses-image">
-                            <a (click)="GoToPage(item.planId)" class="d-block"><img src="https://ugetit.blob.core.windows.net/courseimages/1997d693-1f4d-404b-a3fc-19a5fade0397-Image-2.jpg" alt="image"></a>
-                            <div class="courses-tag">
-                                <a  class="d-block">{{item.length}}-Courses</a>
-                            </div>
-                        </div>
-                        <div class="courses-content">
-                        
-                            <h3><a routerLink="/single-courses" class="d-inline-block">{{item.planName}}</a></h3>
-                           
-                        </div>
-                        <div class="courses-box-footer">
-                            <ul>
-                                <li class="students-number" (click)="AddToCart(item.planId)">
-                                    <i class='bx bx-plus icon-arrow before'></i>Add To Cart
-                                </li>
-                                <!-- <li class="courses-lesson">
-                                    <i class='bx bx-book-open'></i> {{item.length}} lessons
-                                </li> -->
-                                <li class="courses-price">
-                                    ₹{{item.Price}}
-                                </li>
-                            </ul>
+                <div class="single-courses-box mb-30">
+                    <div class="courses-image">
+                        <a (click)="GoToPage(item.planId)" class="d-block"><img
+                                src="https://ugetit.blob.core.windows.net/courseimages/1997d693-1f4d-404b-a3fc-19a5fade0397-Image-2.jpg"
+                                alt="image"></a>
+                        <div class="courses-tag">
+                            <a class="d-block">{{item.length}}-Courses</a>
                         </div>
                     </div>
-                </div>    
+                    <div class="courses-content" (click)="GoToPage(item.planId)">
+
+                        <h3><a routerLink="/courses-2-columns-style-1/{{item.planId}}" class="d-inline-block">{{item.planName}}</a></h3>
+
+                    </div>
+                    <div class="courses-box-footer" (click)="GoToPage(item.planId)">
+                        <ul>
+                            <li class="students-number " (click)="AddToCart(item.planId)">
+                                <!-- <i class='bx bx-plus icon-arrow before'></i>Add To Cart -->
+                                <i class="bx bx-cart-alt"></i>
+                            </li>
+                            
+                            <!-- <li class="courses-lesson">
+                                    <i class='bx bx-book-open'></i> {{item.length}} lessons
+                                </li> -->
+                            <li class="courses-price">
+                                ₹{{item.Price}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-
 
             <!-- <div>
                 <a  class="default-btn" (click)="AddToCart(courseId)"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Add To Cart</span><i class="bx bx-paper-plane icon-arrow after"></i></a>
@@ -55,7 +55,7 @@
                 <a routerLink="/" class="link-btn"></a>
                 
             </div> -->
-            
+
         </ng-template>
         <!-- <ng-template carouselSlide>
             <div class="single-categories-courses-box mb-30">

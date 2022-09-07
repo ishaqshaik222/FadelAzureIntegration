@@ -1,6 +1,26 @@
 @import "../../home-page-one/homeone-courses/homeone-courses.component.scss";
 
+
+      
+      .rating-list li:hover,
+      .rating-list li:hover ~ li, .rating-list li.selected {
+        color: #ffd700;
+      }
+      
+      
+      .rating-list {
+        display: inline-block;
+        list-style: none;
+      }
+
+      .rating-total {
+        display: inline-block;
+        position: relative;
+        top: -2px;
+        font-size: 13px;
+    }
+
 img{
-    width: 336px;
+        width: 100%;
         height: 225px;
 }
