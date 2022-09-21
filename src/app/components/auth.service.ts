@@ -19,7 +19,7 @@ export class AuthService {
   })};
   
   constructor(private _httpClient: HttpClient) {
-      //this.baseUrl = 'https://localhost:44328/';
+     //this.baseUrl = 'https://localhost:44328/';
      this.baseUrl = 'https://testugetitapi.fadelsoft.com/';
      //this.baseUrl = 'http://testugetitapi.fadelsoft.com/';
    }

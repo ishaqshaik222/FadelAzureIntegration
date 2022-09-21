@@ -335,15 +335,17 @@ export class CoursesDetailsPageComponent implements OnInit {
   GoToCourse(id:any){
     debugger
     var baseurl=this._authService.baseUrl
+    var userid=localStorage.getItem('AzureUserId')
+    var username=localStorage.getItem('UserName')
     // localStorage.setItem('courseidfornavigate',id);
     if(baseurl=="https://localhost:44358/"){
-    window.location.href='http://localhost:4300/#/app/'+id
+    window.location.href='http://localhost:4300/#/app/'+id+'/'+userid+'/'+username
     }
     else if(baseurl=="http://testugetitapi.fadelsoft.com/"){
-      window.location.href='http://ugetitstudent.fadelsoft.com/#/app/'+id
+      window.location.href='http://ugetitstudent.fadelsoft.com/#/app/'+id+'/'+userid+'/'+username
     }
     else if(baseurl=="https://testugetitapi.fadelsoft.com/"){
-      window.location.href='https://ugetitstudent.fadelsoft.com/#/app/'+id
+      window.location.href='https://ugetitstudent.fadelsoft.com/#/app/'+id+'/'+userid+'/'+username
     }
     // this._router.navigateByUrl(this._authService.baseUrl+'app/vien/start',);
   }

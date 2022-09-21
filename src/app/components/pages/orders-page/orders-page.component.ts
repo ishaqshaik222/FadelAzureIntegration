@@ -29,7 +29,8 @@ export class OrdersPageComponent implements OnInit {
   }
 
   GoTo(Id:any){
-    this._router.navigate(['/receipts/'+Id]);
+     var val=btoa(Id)
+    this._router.navigate(['/receipts/'+val]);
   }
 
 }

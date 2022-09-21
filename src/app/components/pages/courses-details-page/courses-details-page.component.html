@@ -50,7 +50,7 @@
                     <a class="px-5"  (click)="goDown1()" style="font-size: 20px;cursor: pointer;"><b>Course Overview</b></a>
                     <!-- <a class="px-5"  (click)="goDown1()" style="font-size: 20px;cursor: pointer;"><b>Course Overview</b></a> -->
                     <a class="px-5"  (click)="goDown3()" style="font-size: 20px;cursor: pointer;"><b>Course Content</b></a>
-                    <a class="px-5"  (click)="goDown2()" style="font-size: 20px;cursor: pointer;"><b>Instructors</b></a>
+                    <a class="px-5"  (click)="goDown2()" style="font-size: 20px;cursor: pointer;"><b>Instructor</b></a>
                     <a class="px-5"  (click)="goDown5()" style="font-size: 20px;cursor: pointer;"><b>FAQ</b></a>
                     <a class="px-5"  (click)="goDown4()" style="font-size: 20px;cursor: pointer;"><b>Reviews</b></a>
                 </div>
@@ -471,11 +471,8 @@
                                 </div>
                             </div>
                             <div class="courses-content">
-                                <div class="course-author d-flex align-items-center">
-                                    <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image">
-                                    <span>{{InstrcuctorName}}</span>
-                                </div>
-                                <h3><a routerLink="GoTOPage(item.courseId)" class="d-inline-block">{{item.courseName}}</a></h3>
+                                
+                                <h3><a (click)="GoTOPage(item.courseId)" class="d-inline-block">{{item.courseName}}</a></h3>
                                 <div class="courses-rating">
                                     <div class="review-stars-rated">
                                         <ul class="list-inline rating-list" 
@@ -489,6 +486,10 @@
                                     <div class="rating-total">
                                         {{item.average}} ({{item.noOfRatings}} rating)
                                     </div>
+                                </div>
+                                <div class="course-author d-flex align-items-center">
+                                    <!-- <img src={{item.iconUrl}} class="rounded-circle mr-2" alt="image"> -->
+                                    <span>{{InstrcuctorName}}</span>
                                 </div>
                             </div>
                             <div class="courses-box-footer">

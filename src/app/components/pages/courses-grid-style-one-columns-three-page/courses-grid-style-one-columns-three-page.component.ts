@@ -34,17 +34,17 @@ export class CoursesGridStyleOneColumnsThreePageComponent implements OnInit {
             this.courses[i].price = this.courses[i].price;
 
           }
-          // this.courses[i].ImageURL = baseurl + finalresult.result[i].imageURL;
-          // if (finalresult.result[i].imageURL != null) {
-          //   this.courses[i].ImageURL = baseurl + finalresult.result[i].imageURL;
 
-          //   // this.noimage=true;;
+          if (finalresult.result[i].imageURL != null) {
+            this.courses[i].imageURL =  finalresult.result[i].imageURL;
 
-          // }
-          // else {
-          //   // this.ImageURL = baseurl + "/courseFiles/dummy identityproof.png";
+            // this.noimage=true;;
 
-          // }
+          }
+          else {
+            this.courses[i].imageURL = "assets/img/courses/courses1.jpg";
+
+          }
 
         }
         // if (finalresult.result.imageURL != null) {

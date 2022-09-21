@@ -21,7 +21,8 @@ export class ReceiptComponent implements OnInit {
   ngOnInit(): void {
     var Id=localStorage.getItem('AzureUserId');
     var invoiceId=this.approute.snapshot.params['Invoiceno']
-    this.GetDetails(Id,invoiceId);
+    var val=atob(invoiceId)
+    this.GetDetails(Id,val);
   }
 
   GetDetails(id:any,invoiceno:any){
